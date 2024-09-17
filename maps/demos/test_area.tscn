@@ -1,18 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://dybobipnmvkvo"]
+[gd_scene load_steps=7 format=3 uid="uid://dybobipnmvkvo"]
 
 [ext_resource type="Texture2D" uid="uid://bbgc1071sv2vl" path="res://textures/dev/Dark/texture_01.png" id="1_u0leu"]
 [ext_resource type="PackedScene" uid="uid://cw1u8hgwv37ki" path="res://player.tscn" id="2_uaayw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_amqrc"]
 albedo_texture = ExtResource("1_u0leu")
-uv1_scale = Vector3(5, 5, 5)
+uv1_scale = Vector3(10, 10, 10)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_be18f"]
 material = SubResource("StandardMaterial3D_amqrc")
-size = Vector2(10, 10)
+size = Vector2(40, 40)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_baoae"]
-data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pj2mf"]
+data = PackedVector3Array(20, 0, 20, -20, 0, 20, 20, 0, -20, -20, 0, 20, -20, 0, -20, 20, 0, -20)
+
+[sub_resource type="Environment" id="Environment_5yypr"]
+background_mode = 1
+background_color = Color(0, 0.054902, 0.0941176, 1)
 
 [node name="Test_area" type="Node3D"]
 
@@ -23,7 +27,13 @@ mesh = SubResource("PlaneMesh_be18f")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_baoae")
+shape = SubResource("ConcavePolygonShape3D_pj2mf")
 
 [node name="Player" parent="." instance=ExtResource("2_uaayw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5yypr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.348309, 0.346611, -0.870943, -0.453568, 0.750797, 0.480188, 0.82034, 0.562285, -0.104298, -19.5074, 8.73763, 0)
