@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqs3u87mp0ufb"]
+
+[ext_resource type="PackedScene" uid="uid://dybobipnmvkvo" path="res://maps/demos/test_area.tscn" id="1_p5v37"]
+
+[node name="Test" type="Node"]
+
+[node name="Window" type="Window" parent="."]
+size = Vector2i(480, 270)
+
+[node name="Test_area" parent="Window" instance=ExtResource("1_p5v37")]

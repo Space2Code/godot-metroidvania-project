@@ -3,6 +3,8 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
+@export var mouse_sensitivity = 0.03
+
 @onready var camera_pivot = $"Camera pivot"
 
 func _ready() -> void:
@@ -31,6 +33,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
-	#Handels all the camera movement from left to right
 	if event is InputEventMouseMotion:
-		pass
+		#Handels all the camera movement from left to right
+		if event.relative.x > 0:
+			rotate_object_local(Vector3.UP,-mouse_sensitivity)
+		if event.relative.x < 0:
+			rotate_object_local(Vector3.UP,mouse_sensitivity)
+		#Handels the up and down camera movement
+		if event.relative.y > 0:
+			camera_pivot.rotate_x(-mouse_sensitivity)
+		if event.relative.y < 0:
+			camera_pivot.rotate_x(mouse_sensitivity)
+		

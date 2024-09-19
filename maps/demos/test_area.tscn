@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dybobipnmvkvo"]
+[gd_scene load_steps=8 format=3 uid="uid://dybobipnmvkvo"]
 
 [ext_resource type="Texture2D" uid="uid://bbgc1071sv2vl" path="res://textures/dev/Dark/texture_01.png" id="1_u0leu"]
 [ext_resource type="PackedScene" uid="uid://cw1u8hgwv37ki" path="res://player.tscn" id="2_uaayw"]
+[ext_resource type="PackedScene" uid="uid://xbvm8bitfhcf" path="res://box.tscn" id="3_n3fsj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_amqrc"]
 albedo_texture = ExtResource("1_u0leu")
@@ -37,3 +38,6 @@ environment = SubResource("Environment_5yypr")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.348309, 0.346611, -0.870943, -0.453568, 0.750797, 0.480188, 0.82034, 0.562285, -0.104298, -19.5074, 8.73763, 0)
+
+[node name="box" parent="." instance=ExtResource("3_n3fsj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
