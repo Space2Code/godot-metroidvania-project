@@ -14,6 +14,9 @@ material = SubResource("StandardMaterial3D_fkede")
 [node name="box" type="Node3D"]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 4
+collision_mask = 7
+mass = 0.1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = SubResource("BoxMesh_ne3fs")
