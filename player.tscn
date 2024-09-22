@@ -7,7 +7,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pcgnc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_o5yyx"]
-size = Vector3(0.385, 0.285, 0.22)
+size = Vector3(1.435, 0.285, 0.22)
 
 [node name="Player" type="Node3D"]
 
@@ -26,14 +26,8 @@ mesh = SubResource("CapsuleMesh_pcgnc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.300768, -0.531414)
 mesh = SubResource("BoxMesh_o5yyx")
 
-[node name="Camera pivot" type="Marker3D" parent="CharacterBody3D"]
+[node name="Camera pivot" type="Node3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42723, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Camera pivot"]
-transform = Transform3D(1, 0, 0, 0, 0.968609, 0.248588, 0, -0.248588, 0.968609, 0.699074, 1.89255, 2.83586)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.257029, -0.783127)
-light_energy = 6.047
-spot_range = 5.78153
-spot_angle = 60.4688
+transform = Transform3D(1, 0, 0, 0, 0.93606, 0.351842, 0, -0.351842, 0.93606, 0.46, 1.893, 2.836)

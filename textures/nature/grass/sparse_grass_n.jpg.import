@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y6yoqgievjg"
-path.s3tc="res://.godot/imported/texture_08.png-3ad3e619299b9a70d4dc843fe89e6671.s3tc.ctex"
+uid="uid://vhn2r8b0jmad"
+path.s3tc="res://.godot/imported/sparse_grass_n.jpg-1c00614c5336e5934058ad0d84856468.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/dev/Green/texture_08.png"
-dest_files=["res://.godot/imported/texture_08.png-3ad3e619299b9a70d4dc843fe89e6671.s3tc.ctex"]
+source_file="res://textures/nature/grass/sparse_grass_n.jpg"
+dest_files=["res://.godot/imported/sparse_grass_n.jpg-1c00614c5336e5934058ad0d84856468.s3tc.ctex"]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://textures/nature/grass/sparse_grass_n.jpg"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

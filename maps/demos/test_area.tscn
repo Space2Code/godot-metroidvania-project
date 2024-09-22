@@ -1,35 +1,38 @@
 [gd_scene load_steps=11 format=3 uid="uid://dybobipnmvkvo"]
 
-[ext_resource type="Texture2D" uid="uid://bbgc1071sv2vl" path="res://textures/dev/Dark/texture_01.png" id="1_u0leu"]
+[ext_resource type="Texture2D" uid="uid://crg0tutrfxwu6" path="res://textures/nature/grass/sparse_grass.jpg" id="1_jobjl"]
 [ext_resource type="PackedScene" uid="uid://cw1u8hgwv37ki" path="res://player.tscn" id="2_uaayw"]
-[ext_resource type="PackedScene" uid="uid://xbvm8bitfhcf" path="res://box.tscn" id="3_n3fsj"]
-[ext_resource type="Texture2D" uid="uid://dkcle5nicbu0v" path="res://textures/sky/sky.png" id="3_u7ds5"]
+[ext_resource type="Texture2D" uid="uid://vhn2r8b0jmad" path="res://textures/nature/grass/sparse_grass_n.jpg" id="2_xqukg"]
+[ext_resource type="Texture2D" uid="uid://dkcle5nicbu0v" path="res://textures/sky/sky.png" id="3_tfmrc"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_amqrc"]
-albedo_texture = ExtResource("1_u0leu")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h7ni4"]
+albedo_texture = ExtResource("1_jobjl")
 metallic_specular = 0.0
-uv1_scale = Vector3(10, 10, 10)
+normal_enabled = true
+normal_texture = ExtResource("2_xqukg")
+uv1_scale = Vector3(50, 50, 50)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_be18f"]
-material = SubResource("StandardMaterial3D_amqrc")
-size = Vector2(40, 40)
+material = SubResource("StandardMaterial3D_h7ni4")
+size = Vector2(200, 200)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pj2mf"]
-data = PackedVector3Array(20, 0, 20, -20, 0, 20, 20, 0, -20, -20, 0, 20, -20, 0, -20, 20, 0, -20)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ovbfr"]
+data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_04wvv"]
-panorama = ExtResource("3_u7ds5")
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fvhwg"]
+panorama = ExtResource("3_tfmrc")
 
-[sub_resource type="Sky" id="Sky_kgm8u"]
-sky_material = SubResource("PanoramaSkyMaterial_04wvv")
+[sub_resource type="Sky" id="Sky_dolo4"]
+sky_material = SubResource("PanoramaSkyMaterial_fvhwg")
 
-[sub_resource type="Environment" id="Environment_3kywj"]
+[sub_resource type="Environment" id="Environment_5yypr"]
 background_mode = 2
-sky = SubResource("Sky_kgm8u")
+background_color = Color(0, 0.054902, 0.0941176, 1)
+sky = SubResource("Sky_dolo4")
 fog_enabled = true
-fog_light_color = Color(0.0179819, 0.0217625, 0.0285747, 1)
-fog_density = 0.1719
-fog_sky_affect = 0.95
+fog_light_color = Color(0.0444369, 0.0526488, 0.0655593, 1)
+fog_density = 0.064
+fog_sky_affect = 0.915
 
 [node name="Test_area" type="Node3D"]
 
@@ -40,21 +43,13 @@ mesh = SubResource("PlaneMesh_be18f")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_pj2mf")
+shape = SubResource("ConcavePolygonShape3D_ovbfr")
 
 [node name="Player" parent="." instance=ExtResource("2_uaayw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_3kywj")
+environment = SubResource("Environment_5yypr")
 
-[node name="box" parent="." instance=ExtResource("3_n3fsj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 9.33224, 0)
-light_energy = 12.18
-spot_range = 17.8119
-spot_attenuation = 0.46
-spot_angle = 57.137
-spot_angle_attenuation = 1.62451
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.348309, 0.346611, -0.870943, -0.453568, 0.750797, 0.480188, 0.82034, 0.562285, -0.104298, -19.5074, 8.73763, 0)

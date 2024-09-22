@@ -2,8 +2,13 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+const MAX_VELOCITY = 10.0
 
-@export var mouse_sensitivity = 0.03
+var acceleration := 1.3
+var yaw_input := 0.0
+var pitch_input := 0.0
+
+@export var mouse_sensitivity := 0.03
 
 @onready var camera_pivot = $"Camera pivot"
 
@@ -18,7 +23,14 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
+	
+	#Handels the change in pitch on the camera
+	camera_pivot.rotate_x(pitch_input)
+	camera_pivot.rotation.x = clamp(camera_pivot.rotation.x,-0.7, 1)
+	rotate_object_local(Vector3.UP, yaw_input)
+	yaw_input = 0
+	pitch_input = 0
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("Left", "Right", "Forwards", "Backwards")
@@ -32,16 +44,8 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		#Handels all the camera movement from left to right
-		if event.relative.x > 0:
-			rotate_object_local(Vector3.UP,-mouse_sensitivity)
-		if event.relative.x < 0:
-			rotate_object_local(Vector3.UP,mouse_sensitivity)
-		#Handels the up and down camera movement
-		if event.relative.y > 0:
-			camera_pivot.rotate_x(-mouse_sensitivity)
-		if event.relative.y < 0:
-			camera_pivot.rotate_x(mouse_sensitivity)
-		
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			yaw_input = - event.relative.x * mouse_sensitivity
+			pitch_input = - event.relative.y * mouse_sensitivity
