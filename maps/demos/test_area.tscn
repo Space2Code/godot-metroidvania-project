@@ -31,7 +31,7 @@ background_color = Color(0, 0.054902, 0.0941176, 1)
 sky = SubResource("Sky_dolo4")
 fog_enabled = true
 fog_light_color = Color(0.0444369, 0.0526488, 0.0655593, 1)
-fog_density = 0.064
+fog_density = 0.0535
 fog_sky_affect = 0.915
 
 [node name="Test_area" type="Node3D"]
