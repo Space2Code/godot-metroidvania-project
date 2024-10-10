@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqs3u87mp0ufb"]
 
 [ext_resource type="PackedScene" uid="uid://dybobipnmvkvo" path="res://maps/demos/test_area.tscn" id="1_p5v37"]
-[ext_resource type="PackedScene" path="res://debug_menu.tscn" id="2_lsej2"]
+[ext_resource type="PackedScene" uid="uid://bxrwbvrqtmx4f" path="res://debug_menu.tscn" id="2_lsej2"]
 [ext_resource type="PackedScene" uid="uid://b6p1mwnyhq82n" path="res://crosshair.tscn" id="3_400ox"]
 
 [node name="Test" type="Node"]
