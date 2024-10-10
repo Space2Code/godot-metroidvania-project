@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dakfirkhxfu4b"]
-
-[ext_resource type="PackedScene" uid="uid://dydhufydqll2y" path="res://resources/models/potato/potato.glb" id="1_tsvgs"]
-
-[node name="Magic potato" type="Node3D"]
-
-[node name="potato" parent="." instance=ExtResource("1_tsvgs")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
