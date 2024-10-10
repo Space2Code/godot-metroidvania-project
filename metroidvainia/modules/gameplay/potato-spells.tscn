@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpq8muhmm7m3"]
+
+[ext_resource type="Script" path="res://resources/scripts/potato_spells.gd" id="1_7ig7p"]
+
+[node name="potato_spells" type="Node"]
+script = ExtResource("1_7ig7p")
