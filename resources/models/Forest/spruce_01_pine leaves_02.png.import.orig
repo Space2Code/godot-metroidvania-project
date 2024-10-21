@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7st07bfaod0v"
-path.s3tc="res://.godot/imported/texture_10.png-6f7c2434608316fff37b80b2f7ae9f9e.s3tc.ctex"
+uid="uid://b1uos0jro4vio"
+path.s3tc="res://.godot/imported/spruce_01_pine leaves_02.png-ff62ede80db7dd532a415720783c4ee3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "2316037aba0027897e4c639c960c87ac"
+}
 
 [deps]
 
-source_file="res://textures/dev/Green/texture_10.png"
-dest_files=["res://.godot/imported/texture_10.png-6f7c2434608316fff37b80b2f7ae9f9e.s3tc.ctex"]
+source_file="res://resources/models/Forest/spruce_01_pine leaves_02.png"
+dest_files=["res://.godot/imported/spruce_01_pine leaves_02.png-ff62ede80db7dd532a415720783c4ee3.s3tc.ctex"]
 
 [params]
 

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://gr4uktl7ieob"]
+
+[sub_resource type="GDScript" id="GDScript_b73yy"]
+script/source = "extends Node3D
+
+func _destroy_self():
+	queue_free()
+"
+
+[node name="DestructWall" type="Node3D"]
+script = SubResource("GDScript_b73yy")

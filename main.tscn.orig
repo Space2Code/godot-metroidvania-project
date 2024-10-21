@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqs3u87mp0ufb"]
+
+[ext_resource type="PackedScene" uid="uid://17lufn62send" path="res://maps/demos/level01_demo.tscn" id="1_krhfq"]
+[ext_resource type="PackedScene" uid="uid://bxrwbvrqtmx4f" path="res://resources/debug_menu.tscn" id="2_5ets2"]
+[ext_resource type="PackedScene" uid="uid://b6p1mwnyhq82n" path="res://resources/crosshair.tscn" id="3_t7sqe"]
+
+[node name="main" type="Node"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 4
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(480, 270)
+size_2d_override = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Level01Demo" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_krhfq")]
+
+[node name="Debug menu" parent="." instance=ExtResource("2_5ets2")]
+visible = false
+
+[node name="crosshair" parent="." instance=ExtResource("3_t7sqe")]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://hn8hi0vyy7x2"]
+
+[ext_resource type="PackedScene" uid="uid://byvmu161iew0v" path="res://resources/models/lantern/lantern.glb" id="1_rcqtv"]
+
+[node name="Lantern" type="Node3D"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.065204, 0)
+light_color = Color(1, 0.603922, 0, 1)
+light_energy = 3.04
+omni_range = 34.7204
+
+[node name="lantern" parent="." instance=ExtResource("1_rcqtv")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.536829, 0)

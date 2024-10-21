@@ -1,0 +1,145 @@
+[gd_scene load_steps=21 format=3 uid="uid://17lufn62send"]
+
+[ext_resource type="Material" uid="uid://bc7uirbj1lyu4" path="res://resources/materials/nature/grass.tres" id="1_ltl1s"]
+[ext_resource type="PackedScene" uid="uid://cw1u8hgwv37ki" path="res://Objects/player.tscn" id="2_4ouim"]
+[ext_resource type="Texture2D" uid="uid://dkcle5nicbu0v" path="res://textures/sky/sky.png" id="3_tsuor"]
+[ext_resource type="Texture2D" uid="uid://c7st07bfaod0v" path="res://textures/dev/Green/texture_10.png" id="5_j0mgl"]
+[ext_resource type="FontFile" uid="uid://dp0ci4175pslj" path="res://resources/fonts/RobotoSlab/RobotoSlab-Regular.ttf" id="6_tn83p"]
+[ext_resource type="PackedScene" uid="uid://c8p4mxnlyp6j5" path="res://modules/gameplay/pickable.tscn" id="7_aui3r"]
+[ext_resource type="MeshLibrary" uid="uid://cd5erxkdkw6pf" path="res://resources/spruce_mesh.tres" id="8_4e57c"]
+[ext_resource type="PackedScene" uid="uid://cuc1aev8r8n6u" path="res://Objects/campfire.tscn" id="9_01rqr"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_npygg"]
+material = ExtResource("1_ltl1s")
+size = Vector2(200, 200)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2wjrd"]
+data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3irlv"]
+panorama = ExtResource("3_tsuor")
+
+[sub_resource type="Sky" id="Sky_dolo4"]
+sky_material = SubResource("PanoramaSkyMaterial_3irlv")
+
+[sub_resource type="Environment" id="Environment_opw5p"]
+background_mode = 2
+background_color = Color(0, 0.054902, 0.0941176, 1)
+sky = SubResource("Sky_dolo4")
+fog_light_color = Color(0.12005, 0.134382, 0.156915, 1)
+fog_density = 0.048
+fog_sky_affect = 0.8
+volumetric_fog_albedo = Color(0.122252, 0.122252, 0.122252, 1)
+volumetric_fog_sky_affect = 0.667
+adjustment_enabled = true
+adjustment_brightness = 0.8
+adjustment_saturation = 1.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u7koi"]
+albedo_texture = ExtResource("5_j0mgl")
+metallic_specular = 0.0
+uv1_scale = Vector3(0.15, 0.15, 0.15)
+uv1_offset = Vector3(0, 0.015, 0)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_oqmvv"]
+lightmap_size_hint = Vector2i(41, 103)
+material = SubResource("StandardMaterial3D_u7koi")
+size = Vector3(6.5, 6.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_btgy3"]
+size = Vector3(6.5, 6.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8hkxx"]
+albedo_color = Color(0.88, 0.44, 0.22, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_35dys"]
+material = SubResource("StandardMaterial3D_8hkxx")
+text = "Carrot"
+font = ExtResource("6_tn83p")
+font_size = 90
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bt5eh"]
+size = Vector3(31.8877, 4.90149, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ei7xm"]
+size = Vector3(37.3022, 4.90149, 1)
+
+[node name="Level01Demo" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("PlaneMesh_npygg")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("ConcavePolygonShape3D_2wjrd")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_4ouim")]
+transform = Transform3D(-0.99889, 0, -0.0471065, 0, 1, 0, 0.0471065, 0, -0.99889, -0.35593, 1.535, 0.113597)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_opw5p")
+
+[node name="dwall" type="StaticBody3D" parent="." groups=["destruct_wall"]]
+transform = Transform3D(0.996054, 0, 0, 0, 0.996054, 0, 0, 0, 0.996054, 0.00570393, 1.10297, 14.0147)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="dwall"]
+mesh = SubResource("BoxMesh_oqmvv")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="dwall"]
+shape = SubResource("BoxShape3D_btgy3")
+
+[node name="Carrot" type="MeshInstance3D" parent="." groups=["carrot"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.65661e-10, 0.796383, 6.30583)
+mesh = SubResource("TextMesh_35dys")
+skeleton = NodePath("")
+
+[node name="pickable" parent="Carrot" instance=ExtResource("7_aui3r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.65661e-10, 0, 1.90735e-06)
+
+[node name="trees" type="GridMap" parent="."]
+mesh_library = ExtResource("8_4e57c")
+cell_size = Vector3(1, 2, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65519, 2, 0, 65520, 65531, 0, 65515, 65534, 0, 65523, 65525, 0, 65530, 65519, 0, 2, 65517, 0, 9, 65523, 0, 16, 65527, 0, 19, 3, 0, 15, 13, 0, 8, 21, 0, 19, 65532, 0, 21, 10, 0, 20, 14, 0, 24, 5, 0, 14, 20, 0, 27, 12, 0, 21, 21, 0, 14, 28, 0, 26, 65533, 0, 24, 65525, 0, 16, 65520, 0, 8, 65517, 0, 4, 65510, 0, 65530, 65512, 0, 65535, 65522, 0, 65524, 65518, 0, 65515, 65525, 0, 65513, 4, 0, 65519, 9, 0, 65521, 15, 0, 65511, 16, 0, 65514, 12, 0, 65507, 7, 0, 65508, 65530, 0, 65516, 65515, 0, 65525, 65507, 0, 65535, 65509, 0, 13, 65511, 0, 19, 65514, 0, 23, 65517, 0, 8, 28, 0, 65524, 20, 0, 65516, 24, 0, 65525, 31, 0, 65517, 33, 0, 65517, 32, 0, 65510, 65520, 0, 65509, 65520, 0, 65505, 0, 0, 27, 19, 0, 27, 18, 0, 31, 3, 0, 31, 2, 0, 29, 65521, 0, 28, 65521, 0, 8, 65506, 0, 8, 65505, 0, 65516, 65508, 0, 65500, 65524, 0, 35, 10, 1441792, 37, 4, 1441792, 37, 0, 1441792, 34, 65531, 1441792, 37, 65523, 1441792, 31, 65514, 1441792, 25, 65510, 1441792, 19, 65507, 1441792, 14, 65506, 1441792, 5, 65521, 1441792, 13, 65525, 1441792, 13, 65526, 1441792, 22, 0, 1441792, 21, 65528, 1441792, 23, 65531, 1441792, 17, 65522, 1441792, 11, 65519, 1441792, 10, 65519, 1441792, 65526, 65521, 1441792, 65519, 65519, 1441792, 65522, 65514, 1441792, 65523, 65514, 1441792, 65527, 65514, 1441792, 0, 65513, 1441792, 1, 65513, 1441792, 8, 65513, 1441792, 12, 65515, 1441792, 19, 65519, 1441792, 65516, 65528, 1441792, 65513, 65530, 1441792, 65511, 65534, 1441792, 65510, 1, 1441792, 65512, 8, 1441792, 65515, 15, 1441792, 65518, 19, 1441792, 65519, 21, 1441792, 65515, 5, 1441792, 65519, 65533, 1441792, 65520, 65524, 1441792, 65523, 65521, 1441792, 65534, 65516, 1441792, 22, 65524, 1441792, 27, 3, 1441792, 27, 2, 1441792, 20, 7, 1441792, 17, 12, 1441792, 17, 18, 1441792, 13, 21, 1441792, 9, 24, 1441792, 15, 23, 1441792, 16, 23, 1441792, 21, 19, 1441792, 25, 15, 1441792, 27, 8, 1441792, 29, 5, 1441792, 65526, 23, 1441792, 65521, 24, 1441792, 9, 32, 1441792, 9, 37, 1441792, 13, 42, 1441792, 15, 49, 1441792, 65524, 35, 1441792, 65523, 42, 1441792, 65515, 42, 1441792, 65519, 44, 1441792, 65506, 41, 1441792, 65474, 41, 1441792, 65467, 46, 1441792, 65465, 54, 1441792, 65465, 55, 1441792, 65465, 62, 1441792, 65465, 63, 1441792, 65466, 72, 1441792, 65466, 73, 1441792, 65469, 78, 1441792, 65473, 84, 1441792, 65477, 88, 1441792, 65478, 88, 1441792, 65485, 90, 1441792, 65486, 90, 1441792, 65487, 90, 1441792, 65499, 91, 1441792, 65478, 38, 1441792, 65468, 41, 1441792, 22, 48, 1441792, 26, 42, 1441792, 31, 40, 1441792, 36, 37, 1441792, 44, 32, 1441792, 21, 94, 1441792, 37, 92, 1441792, 51, 91, 1441792, 52, 91, 1441792, 64, 84, 1441792, 72, 75, 1441792, 80, 58, 1441792, 19, 83, 1441792, 12, 77, 1441792, 65502, 34, 1441792, 65499, 26, 1441792, 65497, 18, 1441792, 65495, 11, 1441792, 65494, 11, 1441792, 65494, 10, 1441792, 65493, 5, 1441792, 65473, 33, 1441792, 65473, 32, 1441792, 65469, 23, 1441792, 65469, 22, 1441792, 65466, 13, 1441792, 65465, 13, 1441792, 65465, 12, 1441792, 65463, 3, 1441792, 65463, 2, 1441792, 65463, 65529, 1441792, 65489, 65534, 1441792, 65453, 65529, 1441792, 65447, 65517, 1441792, 65447, 65516, 1441792, 65447, 65515, 1441792, 65449, 65507, 1441792, 65453, 65499, 1441792, 65458, 65496, 1441792, 65459, 65496, 1441792, 65460, 65496, 1441792, 65467, 65496, 1441792, 65468, 65496, 1441792, 65479, 65496, 1441792, 65486, 65498, 1441792, 65486, 65499, 1441792, 65487, 65499, 1441792, 65487, 65500, 1441792, 65502, 65494, 1441792, 65515, 65493, 1441792, 65515, 65494, 1441792, 65515, 65495, 1441792, 65513, 65503, 1441792, 65513, 65504, 1441792, 65513, 65505, 1441792, 65507, 65510, 1441792, 65504, 65499, 1441792, 65493, 65494, 1441792, 65485, 65490, 1441792, 65498, 4, 1441792, 41, 18, 1441792, 44, 22, 1441792, 44, 23, 1441792, 44, 24, 1441792, 43, 24, 1441792, 42, 26, 1441792, 50, 8, 1441792, 50, 65517, 1441792, 51, 65517, 1441792, 62, 65508, 1441792, 63, 65508, 1441792, 64, 65508, 1441792, 79, 65508, 1441792, 78, 65509, 1441792, 79, 65509, 1441792, 81, 65523, 1441792, 81, 65524, 1441792, 82, 65524, 1441792, 84, 2, 1441792, 84, 3, 1441792, 85, 3, 1441792, 85, 4, 1441792, 87, 7, 1441792, 88, 7, 1441792, 88, 8, 1441792, 88, 9, 1441792, 89, 10, 1441792, 92, 23, 1441792, 92, 24, 1441792, 92, 25, 1441792, 92, 26, 1441792, 93, 35, 1441792, 93, 36, 1441792, 93, 37, 1441792, 92, 38, 1441792, 92, 39, 1441792, 90, 45, 1441792, 90, 46, 1441792, 89, 46, 1441792, 89, 47, 1441792, 82, 48, 1441792, 86, 53, 1441792, 48, 65449, 1441792, 49, 65449, 1441792, 64, 65447, 1441792, 74, 65450, 1441792, 75, 65450, 1441792, 75, 65451, 1441792, 76, 65451, 1441792, 76, 65452, 1441792, 84, 65456, 1441792, 84, 65457, 1441792, 88, 65470, 1441792, 89, 65470, 1441792, 92, 65483, 1441792, 93, 65483, 1441792, 92, 65484, 1441792, 93, 65499, 1441792, 93, 65500, 1441792, 93, 65501, 1441792, 90, 65507, 1441792, 40, 65510, 1441792, 41, 65510, 1441792, 30, 65498, 1441792, 30, 65497, 1441792, 30, 65496, 1441792, 23, 65485, 1441792, 23, 65484, 1441792, 23, 65483, 1441792, 23, 65482, 1441792, 23, 65471, 1441792, 23, 65470, 1441792, 23, 65469, 1441792, 23, 65468, 1441792, 24, 65467, 1441792, 29, 65457, 1441792, 30, 65457, 1441792, 31, 65457, 1441792, 31, 65456, 1441792, 32, 65455, 1441792, 39, 65452, 1441792, 40, 65451, 1441792, 57, 65445, 1441792, 58, 65445, 1441792, 13, 33, 1441792, 17, 44, 1441792, 13, 37, 1441792, 19, 21, 1441792, 31, 11, 1441792, 37, 15, 1441792, 40, 15, 1441792, 42, 22, 1441792, 41, 33, 1441792, 39, 37, 1441792, 24, 45, 1441792, 65506, 36, 1441792, 65514, 37, 1441792, 65499, 21, 1441792, 65500, 21, 1441792, 65500, 22, 1441792, 65502, 30, 1441792, 65508, 33, 1441792, 65505, 31, 1441792, 65503, 26, 1441792, 65499, 15, 1441792, 65501, 11, 1441792, 65500, 6, 1441792, 65524, 65523, 1441792, 65521, 65525, 1441792, 65523, 65523, 1441792, 11, 21, 1441792, 13, 16, 0, 10, 6, 0, 65527, 2, 0, 13, 2, 0, 65510, 27, 0, 65507, 20, 0)
+}
+
+[node name="campfire2" parent="." instance=ExtResource("9_01rqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0342021, 0, 3.24537)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="campfire2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.705787, 0)
+light_color = Color(0.77, 0.325325, 0.00769999, 1)
+light_energy = 6.302
+shadow_enabled = true
+shadow_bias = 0.679
+omni_range = 83.571
+
+[node name="starter border" type="Node3D" parent="."]
+
+[node name="wall" type="StaticBody3D" parent="starter border"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.4893)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="starter border/wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95074, 0)
+shape = SubResource("BoxShape3D_bt5eh")
+
+[node name="wall2" type="StaticBody3D" parent="starter border"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.9876, 0, 6.15546)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="starter border/wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95074, 0)
+shape = SubResource("BoxShape3D_bt5eh")
+
+[node name="wall3" type="StaticBody3D" parent="starter border"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.3223, 0, 6.15546)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="starter border/wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70727, 1.95074, 0)
+shape = SubResource("BoxShape3D_ei7xm")

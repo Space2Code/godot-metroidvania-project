@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cw1u8hgwv37ki"]
+[gd_scene load_steps=9 format=3 uid="uid://cw1u8hgwv37ki"]
 
 [ext_resource type="Script" path="res://resources/scripts/movement.gd" id="1_2o4ah"]
 [ext_resource type="PackedScene" uid="uid://cpq8muhmm7m3" path="res://modules/gameplay/potato-spells.tscn" id="2_f11kf"]
 [ext_resource type="PackedScene" uid="uid://dakfirkhxfu4b" path="res://resources/models/potato/magic_potato.tscn" id="2_lge60"]
 [ext_resource type="PackedScene" uid="uid://b7mj6kycevqgq" path="res://modules/generic/quit.tscn" id="3_mvqrx"]
+[ext_resource type="PackedScene" uid="uid://6j412u5h0h2g" path="res://modules/gameplay/abilites.tscn" id="5_h4kkq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m7eo5"]
 
@@ -47,3 +48,5 @@ transform = Transform3D(0.444616, 0, 0, 0, 0.354314, -0.268598, 0, 0.268598, 0.3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_0dfs6")
+
+[node name="Abilites" parent="." instance=ExtResource("5_h4kkq")]
