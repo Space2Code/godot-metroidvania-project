@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://cuc1aev8r8n6u"]
 
 [ext_resource type="PackedScene" uid="uid://uoa5yoppdw6n" path="res://resources/models/Forest/campfire.glb" id="1_ct516"]
-[ext_resource type="Texture2D" uid="uid://o10t1dj8omdq" path="res://textures/nature/fire/fire_01.png" id="2_moh56"]
-[ext_resource type="Texture2D" uid="uid://5j440w2hg50m" path="res://textures/nature/fire/smoke_06.png" id="3_bfm5y"]
+[ext_resource type="Texture2D" uid="uid://o10t1dj8omdq" path="res://resources/textures/nature/fire/fire_01.png" id="2_moh56"]
+[ext_resource type="Texture2D" uid="uid://5j440w2hg50m" path="res://resources/textures/nature/fire/smoke_06.png" id="3_bfm5y"]
 
 [sub_resource type="Gradient" id="Gradient_qrmaw"]
 offsets = PackedFloat32Array(0, 0.409091)

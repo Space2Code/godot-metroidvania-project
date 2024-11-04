@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://dwdowkafmpfpw"]
+[gd_scene load_steps=2 format=3 uid="uid://dwdowkafmpfpw"]
 
-[node name="Enemy" type="Node"]
+[ext_resource type="Script" path="res://resources/scripts/entity.gd" id="1_c3iun"]
+
+[node name="Entitiy" type="Node"]
+script = ExtResource("1_c3iun")

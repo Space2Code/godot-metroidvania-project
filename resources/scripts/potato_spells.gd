@@ -12,4 +12,4 @@ func _input(event: InputEvent) -> void:
 			
 func raycasting():
 	if raycast.is_colliding() and raycast.get_collider().has_node("Entity"):
-		raycast.get_collider().get_node("Entity").delete_self()
+		raycast.get_collider().get_node("Entity").damage_entity(5)

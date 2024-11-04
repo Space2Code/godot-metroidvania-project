@@ -1,0 +1,23 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://qsl7xj27lo8f"]
+
+[ext_resource type="FontFile" uid="uid://bgol4nytxjy6y" path="res://resources/fonts/RobotoSlab/RobotoSlab-Medium.ttf" id="1_pnaej"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1j5p"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5s34"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l14yi"]
+bg_color = Color(0.0567, 0.13491, 0.27, 0.243137)
+
+[resource]
+Button/font_sizes/font_size = 25
+Button/fonts/font = ExtResource("1_pnaej")
+Button/styles/hover = SubResource("StyleBoxFlat_o1j5p")
+Button/styles/normal = SubResource("StyleBoxFlat_q5s34")
+Panel/styles/panel = SubResource("StyleBoxFlat_l14yi")

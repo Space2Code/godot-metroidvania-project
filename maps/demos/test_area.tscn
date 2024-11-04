@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://dybobipnmvkvo"]
 
-[ext_resource type="Texture2D" uid="uid://crg0tutrfxwu6" path="res://textures/nature/grass/sparse_grass.jpg" id="1_jobjl"]
+[ext_resource type="Texture2D" uid="uid://crg0tutrfxwu6" path="res://resources/textures/nature/grass/sparse_grass.jpg" id="1_jobjl"]
 [ext_resource type="PackedScene" uid="uid://cw1u8hgwv37ki" path="res://Objects/player.tscn" id="2_uaayw"]
-[ext_resource type="Texture2D" uid="uid://vhn2r8b0jmad" path="res://textures/nature/grass/sparse_grass_n.jpg" id="2_xqukg"]
-[ext_resource type="Texture2D" uid="uid://dkcle5nicbu0v" path="res://textures/sky/sky.png" id="3_tfmrc"]
+[ext_resource type="Texture2D" uid="uid://vhn2r8b0jmad" path="res://resources/textures/nature/grass/sparse_grass_n.jpg" id="2_xqukg"]
+[ext_resource type="Texture2D" uid="uid://dkcle5nicbu0v" path="res://resources/textures/sky/sky.png" id="3_tfmrc"]
 [ext_resource type="PackedScene" uid="uid://dwdowkafmpfpw" path="res://modules/gameplay/entity.tscn" id="5_slebp"]
 [ext_resource type="Script" path="res://resources/scripts/entity.gd" id="6_7yswn"]
 [ext_resource type="PackedScene" uid="uid://dakfirkhxfu4b" path="res://resources/models/potato/magic_potato.tscn" id="7_jddd7"]
