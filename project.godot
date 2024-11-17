@@ -28,6 +28,8 @@ window/stretch/mode="viewport"
 [global_group]
 
 Player=""
+Enemy=""
+kill_wall=""
 
 [input]
 

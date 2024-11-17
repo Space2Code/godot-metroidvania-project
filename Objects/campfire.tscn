@@ -8,14 +8,14 @@
 offsets = PackedFloat32Array(0, 0.409091)
 colors = PackedColorArray(0.78, 0.442, 0, 1, 0.89, 0.148333, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_istmi"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_txp3t"]
 gradient = SubResource("Gradient_qrmaw")
 
 [sub_resource type="Curve" id="Curve_lxvdf"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.241758, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_gcreu"]
+[sub_resource type="CurveTexture" id="CurveTexture_dw0uw"]
 curve = SubResource("Curve_lxvdf")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mv768"]
@@ -32,10 +32,10 @@ linear_accel_min = 0.999998
 linear_accel_max = 0.999998
 scale_min = 2.0
 scale_max = 2.0
-scale_curve = SubResource("CurveTexture_gcreu")
-color_ramp = SubResource("GradientTexture1D_istmi")
+scale_curve = SubResource("CurveTexture_dw0uw")
+color_ramp = SubResource("GradientTexture1D_txp3t")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubx41"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o5w4k"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
@@ -48,20 +48,20 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_7syiu"]
-material = SubResource("StandardMaterial3D_ubx41")
+material = SubResource("StandardMaterial3D_o5w4k")
 
 [sub_resource type="Gradient" id="Gradient_tksg7"]
 offsets = PackedFloat32Array(0, 0.487013, 0.746753, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.168627, 1, 1, 1, 0.392157, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_rvtrj"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xddbq"]
 gradient = SubResource("Gradient_tksg7")
 
 [sub_resource type="Curve" id="Curve_ry78d"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.313187, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_mpu47"]
+[sub_resource type="CurveTexture" id="CurveTexture_tp6c6"]
 curve = SubResource("Curve_ry78d")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kjlkc"]
@@ -76,10 +76,10 @@ angular_velocity_max = 50.0
 gravity = Vector3(0, 0, 0)
 linear_accel_min = 0.999998
 linear_accel_max = 0.999998
-scale_curve = SubResource("CurveTexture_mpu47")
-color_ramp = SubResource("GradientTexture1D_rvtrj")
+scale_curve = SubResource("CurveTexture_tp6c6")
+color_ramp = SubResource("GradientTexture1D_xddbq")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m5gla"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mnbof"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
@@ -92,7 +92,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_2tycq"]
-material = SubResource("StandardMaterial3D_m5gla")
+material = SubResource("StandardMaterial3D_mnbof")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_miikv"]
 size = Vector3(1, 0.461182, 1.0686)

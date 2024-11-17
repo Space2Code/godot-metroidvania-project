@@ -7,6 +7,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		destroyable_wall()
 
 func destroyable_wall():
-	if raycast.is_colliding() and raycast.get_collider().is_in_group("destruct_wall"):
-		raycast.get_collider().queue_free()
+	if raycast.is_colliding() and raycast.get_collider().is_in_group("kill_wall"):
+		raycast.get_collider().get_parent().queue_free()
 		

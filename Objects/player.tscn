@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cw1u8hgwv37ki"]
+[gd_scene load_steps=10 format=3 uid="uid://cw1u8hgwv37ki"]
 
 [ext_resource type="Script" path="res://resources/scripts/movement.gd" id="1_2o4ah"]
 [ext_resource type="PackedScene" uid="uid://cpq8muhmm7m3" path="res://modules/gameplay/potato-spells.tscn" id="2_f11kf"]
-[ext_resource type="PackedScene" uid="uid://dakfirkhxfu4b" path="res://resources/models/potato/magic_potato.tscn" id="2_lge60"]
 [ext_resource type="PackedScene" uid="uid://b7mj6kycevqgq" path="res://modules/generic/quit.tscn" id="3_mvqrx"]
+[ext_resource type="PackedScene" uid="uid://bsgvyce44jkio" path="res://Objects/arms.tscn" id="4_33sgd"]
+[ext_resource type="PackedScene" uid="uid://chd2ghktkuryw" path="res://Objects/magic_potato.tscn" id="5_2sbnh"]
 [ext_resource type="PackedScene" uid="uid://6j412u5h0h2g" path="res://modules/gameplay/abilites.tscn" id="5_h4kkq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m7eo5"]
@@ -18,6 +19,28 @@ collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_2o4ah")
 mouse_sensitivity = 0.01
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+positional_shadow_atlas_size = 4096
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="viewmodel_cam" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.427, 0)
+cull_mask = 524288
+fov = 90.0
 
 [node name="quit" parent="." instance=ExtResource("3_mvqrx")]
 
@@ -34,6 +57,7 @@ mesh = SubResource("CapsuleMesh_pcgnc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42723, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Camera pivot"]
+cull_mask = 524287
 fov = 90.0
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera pivot/Camera3D"]
@@ -41,8 +65,11 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, 500, 0)
 
-[node name="Magic potato" parent="Camera pivot" instance=ExtResource("2_lge60")]
-transform = Transform3D(0.444616, 0, 0, 0, 0.354314, -0.268598, 0, 0.268598, 0.354314, 0.426339, -0.435487, -0.786217)
+[node name="arms" parent="Camera pivot/Camera3D" instance=ExtResource("4_33sgd")]
+transform = Transform3D(6.85142e-05, -0.000135648, 0.350169, 0.0419131, 0.347652, 0.000126478, -0.347652, 0.0419131, 8.42602e-05, 0.575082, -0.987028, -2.34919)
+
+[node name="magic potato" parent="Camera pivot/Camera3D/arms" instance=ExtResource("5_2sbnh")]
+transform = Transform3D(0.693299, -0.0310772, -0.182204, -0.184748, -0.13827, -0.679395, -0.00568589, 0.70338, -0.141606, -0.680527, 0.506849, -1.10326)
 
 [node name="Area3D player" type="Area3D" parent="." groups=["Player"]]
 

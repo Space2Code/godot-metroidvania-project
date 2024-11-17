@@ -6,8 +6,9 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 	if get_parent().is_in_group("carrot"):
 		GameManager.carrots += 1
 		print(GameManager.carrots)
-		if GameManager.carrots <= 2:
+		if GameManager.carrots <= 1:
 			GameManager.is_hotpotato_unlocked = true
+			print(GameManager.is_hotpotato_unlocked)
 		get_parent().queue_free()
 	else:
 		get_parent().queue_free()

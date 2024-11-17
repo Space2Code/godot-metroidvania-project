@@ -12,7 +12,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7ksqr")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Pause" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Pause"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +30,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_s82ku")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Pause/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,37 +38,119 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 170
-theme_override_constants/margin_top = 300
+theme_override_constants/margin_top = 325
+theme_override_constants/margin_bottom = 325
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause/Panel/MarginContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 80
 
-[node name="Continue" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="Continue" type="Button" parent="Pause/Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme = ExtResource("1_s82ku")
 text = "Continue"
+alignment = 0
 
-[node name="Options" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="Pause/Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme = ExtResource("1_s82ku")
 text = "Options"
+alignment = 0
 
-[node name="About" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="About" type="Button" parent="Pause/Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme = ExtResource("1_s82ku")
 text = "About
 "
+alignment = 0
 
-[node name="Quit" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="Pause/Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme = ExtResource("1_s82ku")
 text = "Exit"
+alignment = 0
 
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Options" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_s82ku")
+
+[node name="MarginContainer" type="MarginContainer" parent="Options/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 170
+theme_override_constants/margin_top = 325
+theme_override_constants/margin_bottom = 325
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options/Panel/MarginContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 80
+
+[node name="MenuButton" type="MenuButton" parent="Options/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("1_s82ku")
+text = "Resolution"
+alignment = 0
+item_count = 2
+popup/item_0/text = "1920x1080"
+popup/item_1/text = "2560x1440"
+popup/item_1/id = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("1_s82ku")
+theme_override_constants/separation = 50
+
+[node name="Fullscreen" type="Button" parent="Options/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+theme = ExtResource("1_s82ku")
+text = "Fullscreen"
+alignment = 0
+
+[node name="CheckBox" type="CheckBox" parent="Options/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme = ExtResource("1_s82ku")
+alignment = 1
+icon_alignment = 1
+
+[node name="Back" type="Button" parent="Options/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+theme = ExtResource("1_s82ku")
+text = "Back
+"
+alignment = 0
+
+[connection signal="pressed" from="Pause/Panel/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Pause/Panel/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Pause/Panel/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Options/Panel/MarginContainer/VBoxContainer/HBoxContainer/Fullscreen" to="." method="_on_fullscreen_pressed"]

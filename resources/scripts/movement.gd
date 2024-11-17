@@ -11,10 +11,14 @@ var pitch_input := 0.0
 @export var mouse_sensitivity := 0.03
 
 @onready var camera_pivot = $"Camera pivot"
+@onready var subviewport_cam = %"viewmodel_cam"
+@onready var camera = $"Camera pivot/Camera3D"
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+func _process(delta: float) -> void:
+	subviewport_cam.set_global_transform(camera.get_global_transform())
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():

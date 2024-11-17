@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://c60bubh1jliqt"]
+
+[sub_resource type="Curve" id="Curve_3ows0"]
+_data = [Vector2(0, 0.301303), 0.0, 0.0, 0, 0, Vector2(0.277344, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_y7pik"]
+curve = SubResource("Curve_3ows0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ie2b1"]
+lifetime_randomness = 0.44
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -113.4
+angle_max = 133.2
+direction = Vector3(0, 0, 0)
+spread = 79.225
+initial_velocity_min = -10.0
+initial_velocity_max = 10.0
+angular_velocity_min = -267.1
+angular_velocity_max = 325.16
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 0.85
+scale_curve = SubResource("CurveTexture_y7pik")
+color = Color(0.497734, 0.354975, 1, 1)
+hue_variation_min = -0.03
+hue_variation_max = 0.19
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_as38n"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_5110t"]
+material = SubResource("StandardMaterial3D_as38n")
+size = Vector3(0.75, 0.75, 0.75)
+
+[sub_resource type="Animation" id="Animation_euwei"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_61xy6"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eb66x"]
+_data = {
+"RESET": SubResource("Animation_euwei"),
+"default": SubResource("Animation_61xy6")
+}
+
+[node name="death_effect" type="GPUParticles3D"]
+emitting = false
+amount = 100
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_ie2b1")
+draw_pass_1 = SubResource("BoxMesh_5110t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eb66x")
+}
+autoplay = "default"

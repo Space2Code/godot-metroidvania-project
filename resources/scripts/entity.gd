@@ -8,4 +8,9 @@ func damage_entity(dmg):
 	if health > 0:
 		healthbar.value = health
 	else:
-		get_parent().get_parent().queue_free()
+		if get_parent().is_in_group("Enemy"):
+			var death_inst = load("res://modules/gameplay/death_effect.tscn").instantiate()
+			healthbar.value = 0
+			get_parent().get_parent().add_child(death_inst)
+			death_inst.global_position = get_parent().global_position
+			get_parent().queue_free()
