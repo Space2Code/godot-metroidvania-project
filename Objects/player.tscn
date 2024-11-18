@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cw1u8hgwv37ki"]
+[gd_scene load_steps=12 format=3 uid="uid://cw1u8hgwv37ki"]
 
 [ext_resource type="Script" path="res://resources/scripts/movement.gd" id="1_2o4ah"]
 [ext_resource type="PackedScene" uid="uid://cpq8muhmm7m3" path="res://modules/gameplay/potato-spells.tscn" id="2_f11kf"]
@@ -9,7 +9,42 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m7eo5"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_pcgnc"]
+[sub_resource type="Animation" id="Animation_v6sri"]
+resource_name = "arm_sway"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("arms:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 2.82843, 0.297302),
+"update": 0,
+"values": [Vector3(0.575082, -0.987028, -2.34919), Vector3(0.575, -1.165, -2.349), Vector3(0.575, -0.987, -2.349)]
+}
+
+[sub_resource type="Animation" id="Animation_qnrmu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("arms:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.575082, -0.987028, -2.34919)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kxt0f"]
+_data = {
+"RESET": SubResource("Animation_qnrmu"),
+"arm_sway": SubResource("Animation_v6sri")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0dfs6"]
 size = Vector3(1.5, 1.975, 1.5)
@@ -51,7 +86,6 @@ unique_name_in_owner = true
 shape = SubResource("CapsuleShape3D_m7eo5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_pcgnc")
 
 [node name="Camera pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42723, 0)
@@ -70,6 +104,12 @@ transform = Transform3D(6.85142e-05, -0.000135648, 0.350169, 0.0419131, 0.347652
 
 [node name="magic potato" parent="Camera pivot/Camera3D/arms" instance=ExtResource("5_2sbnh")]
 transform = Transform3D(0.693299, -0.0310772, -0.182204, -0.184748, -0.13827, -0.679395, -0.00568589, 0.70338, -0.141606, -0.680527, 0.506849, -1.10326)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera pivot/Camera3D"]
+libraries = {
+"": SubResource("AnimationLibrary_kxt0f")
+}
+autoplay = "arm_sway"
 
 [node name="Area3D player" type="Area3D" parent="." groups=["Player"]]
 

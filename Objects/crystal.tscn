@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvsqp31bmb53j"]
+
+[ext_resource type="PackedScene" uid="uid://dtjq8l6hiiw1v" path="res://resources/models/Forest/crystals/crystal.glb" id="1_pk71k"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6kicj"]
+radius = 1.71964
+height = 11.6228
+
+[node name="crystal" instance=ExtResource("1_pk71k")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="0"]
+transform = Transform3D(0.55026, 0, 0, 0, 0.55026, 0, 0, 0, 0.55026, 0.00310922, 0.0338252, -0.00556278)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.71455, 0)
+shape = SubResource("CapsuleShape3D_6kicj")
+
+[node name="crystal" parent="." index="1"]
+transform = Transform3D(0.55026, 0, 0, 0, 0.55026, 0, 0, 0, 0.55026, 0.00310922, 0.0338252, -0.00556278)
