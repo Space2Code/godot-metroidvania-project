@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqs3u87mp0ufb"]
 
-[ext_resource type="PackedScene" uid="uid://17lufn62send" path="res://maps/demos/level01_demo.tscn" id="1_krhfq"]
+[ext_resource type="PackedScene" uid="uid://c53buwm7k44yt" path="res://maps/demos/demo02.tscn" id="1_f4m4v"]
 [ext_resource type="PackedScene" uid="uid://b6p1mwnyhq82n" path="res://resources/crosshair.tscn" id="3_t7sqe"]
 [ext_resource type="PackedScene" uid="uid://rtddxsppqlo6" path="res://main_menu.tscn" id="4_p6dj1"]
 
@@ -21,7 +21,7 @@ handle_input_locally = false
 size = Vector2i(480, 270)
 render_target_update_mode = 4
 
-[node name="Level01Demo" parent="main window/SubViewport" instance=ExtResource("1_krhfq")]
+[node name="Demo02" parent="main window/SubViewport" instance=ExtResource("1_f4m4v")]
 
 [node name="crosshair" parent="." instance=ExtResource("3_t7sqe")]
 

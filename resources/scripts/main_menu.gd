@@ -18,6 +18,7 @@ func _on_quit_pressed() -> void:
 
 func _on_continue_pressed() -> void:
 	pause_menu.visible = !pause_menu.visible
+	pause_menu.get_parent().visible = false
 	if pause_menu.visible:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
