@@ -1,0 +1,47 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://qsl7xj27lo8f"]
+
+[ext_resource type="FontFile" uid="uid://bgol4nytxjy6y" path="res://resources/fonts/RobotoSlab/RobotoSlab-Medium.ttf" id="1_pnaej"]
+[ext_resource type="Texture2D" uid="uid://diehj248pfd0j" path="res://resources/textures/Icons/Checkbutton01.png" id="2_3s4cu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8daj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1j5p"]
+bg_color = Color(1, 1, 1, 0.113725)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5s34"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0qax"]
+atlas = ExtResource("2_3s4cu")
+region = Rect2(64, 0, 64, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06s5x"]
+atlas = ExtResource("2_3s4cu")
+region = Rect2(0, 0, 64, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l14yi"]
+bg_color = Color(0.0567, 0.13491, 0.27, 0.243137)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bv4e2"]
+bg_color = Color(0.12, 0.12, 0.12, 0.752941)
+
+[resource]
+Button/colors/font_hover_color = Color(0.95, 0.901233, 0.684, 1)
+Button/font_sizes/font_size = 25
+Button/fonts/font = ExtResource("1_pnaej")
+Button/styles/focus = SubResource("StyleBoxFlat_y8daj")
+Button/styles/hover = SubResource("StyleBoxFlat_o1j5p")
+Button/styles/normal = SubResource("StyleBoxFlat_q5s34")
+CheckBox/icons/checked = SubResource("AtlasTexture_m0qax")
+CheckBox/icons/unchecked = SubResource("AtlasTexture_06s5x")
+Panel/styles/panel = SubResource("StyleBoxFlat_l14yi")
+PopupMenu/colors/font_hover_color = Color(0.94902, 0.901961, 0.682353, 1)
+PopupMenu/font_sizes/font_size = 19
+PopupMenu/fonts/font = ExtResource("1_pnaej")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_bv4e2")

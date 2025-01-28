@@ -1,4 +1,7 @@
 extends Node
 
-var is_magic_potato_equppied := false
-var is_hotpotato_unlocked := false
+var is_magic_potato_equppied: bool = false
+var is_carrot_bomb_unlocked: bool = false
+var is_teleport_bread_unlocked: bool = true
+
+var score: int = 0

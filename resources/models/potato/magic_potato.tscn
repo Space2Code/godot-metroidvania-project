@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dakfirkhxfu4b"]
+[gd_scene load_steps=2 format=3 uid="uid://duljehf3du7y"]
 
-[ext_resource type="PackedScene" uid="uid://dydhufydqll2y" path="res://resources/models/potato/potato.glb" id="1_tsvgs"]
+[ext_resource type="PackedScene" uid="uid://dydhufydqll2y" path="res://resources/models/potato/potato.glb" id="1_3geo0"]
 
-[node name="Magic potato" type="Node3D"]
+[node name="magic potato" instance=ExtResource("1_3geo0")]
 
-[node name="potato" parent="." instance=ExtResource("1_tsvgs")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+[node name="Icosphere" parent="." index="0"]
+layers = 524288

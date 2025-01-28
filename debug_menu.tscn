@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bxrwbvrqtmx4f"]
 
-[ext_resource type="Theme" uid="uid://ctu8uubkd72kt" path="res://resources/Debug menu.tres" id="1_igu8j"]
+[ext_resource type="Theme" uid="uid://ctu8uubkd72kt" path="res://resources/themes/Debug menu.tres" id="1_igu8j"]
 
 [node name="Debug menu" type="Control"]
 layout_mode = 3

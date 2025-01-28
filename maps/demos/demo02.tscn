@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://c53buwm7k44yt"]
+
+[ext_resource type="PackedScene" uid="uid://b1j5eyo6s4k3h" path="res://maps/demos/new_metroidvaina_map.tscn" id="1_v5q6n"]
+[ext_resource type="Texture2D" uid="uid://dkcle5nicbu0v" path="res://textures/sky/sky.png" id="2_57hui"]
+[ext_resource type="PackedScene" uid="uid://cw1u8hgwv37ki" path="res://Objects/player.tscn" id="3_l1wb2"]
+[ext_resource type="PackedScene" uid="uid://bbtxgdr363xhj" path="res://Objects/carrot_bomb_upgrade.tscn" id="4_kbiqf"]
+[ext_resource type="PackedScene" uid="uid://dkjow4684487v" path="res://Objects/spruce_01.tscn" id="5_raa5c"]
+[ext_resource type="PackedScene" uid="uid://d12gp05dhg8b7" path="res://Objects/teleport_node.tscn" id="6_bb5e5"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_38p7b"]
+panorama = ExtResource("2_57hui")
+
+[sub_resource type="Sky" id="Sky_gcr5o"]
+sky_material = SubResource("PanoramaSkyMaterial_38p7b")
+
+[sub_resource type="Environment" id="Environment_xnpjm"]
+background_mode = 2
+sky = SubResource("Sky_gcr5o")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oiqiw"]
+size = Vector3(4.49072, 6.25964, 8.52228)
+
+[node name="Demo02" type="Node3D"]
+
+[node name="new metroidvaina map" parent="." instance=ExtResource("1_v5q6n")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xnpjm")
+
+[node name="player" parent="." instance=ExtResource("3_l1wb2")]
+transform = Transform3D(-0.0182377, 0, 0.999834, 0, 1, 0, -0.999834, 0, -0.0182377, 28.0256, 0.0961314, -9.72754)
+mouse_sensitivity = 0.05
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.526184, 0.850371, 0, -0.850371, 0.526184, 0, 4.07341, 0)
+light_color = Color(0.87, 0.9025, 1, 1)
+light_energy = 1.457
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 7.162
+
+[node name="Carrot bomb upgrade" parent="." instance=ExtResource("4_kbiqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8979, -2.405, -9.50001)
+
+[node name="progress_wall" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.29121, -2.44448, -6.72282)
+
+[node name="spruce_01" parent="progress_wall" instance=ExtResource("5_raa5c")]
+transform = Transform3D(0.937227, -0.264986, 0.226688, 0, 0.650058, 0.759884, -0.348719, -0.712184, 0.609252, 0, -1.78836, 2.96092)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="progress_wall" groups=["kill_wall"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="progress_wall/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.967529, 2.62982, -0.696564)
+shape = SubResource("BoxShape3D_oiqiw")
+
+[node name="progress_wall2" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.5892, -2.44448, -22.4361)
+
+[node name="spruce_01" parent="progress_wall2" instance=ExtResource("5_raa5c")]
+transform = Transform3D(0.937227, -0.264986, 0.226688, 0, 0.650058, 0.759884, -0.348719, -0.712184, 0.609252, 0, -1.78836, 2.96092)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="progress_wall2" groups=["kill_wall"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="progress_wall2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.967529, 2.62982, -0.696564)
+shape = SubResource("BoxShape3D_oiqiw")
+
+[node name="teleport_node" parent="." instance=ExtResource("6_bb5e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 6, -1)

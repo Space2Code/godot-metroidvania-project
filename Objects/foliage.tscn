@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=4 uid="uid://b5sfhql4beem1"]
+
+[ext_resource type="PackedScene" uid="uid://cbmjf4ban47o8" path="res://resources/models/Forest/foliage.glb" id="1_y5tws"]
+[ext_resource type="Texture2D" uid="uid://bjxqc2u8vsypc" path="res://resources/models/Forest/foliage_plant01.png" id="2_rbaba"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ciwp"]
+resource_name = "Material.001"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("2_rbaba")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ao70f"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAUABAAGAAcACAALAAkACAAKAAsADAAPAA0ADAAOAA8A"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAD/f/7/AAD///9//v8AAAAA/38AAAAA////fwAAAAD/fwAA//8AAP9////+/wAA/38AAAAAAAD/f/7/AAAAAH0lgdr+/wAAgdp9Jf7/AAB9JYHaAAAAAIHafSUAAAAAgdqB2v//AAB9JX0l/v8AAIHagdoAAAAAfSV9JQAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_t36qb"]
+resource_name = "foliage_Plane"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("AAD///////8AAAAA//8AAAAA////////AAAAAP//AAAAAP///////wAAAAD//wAAAAD///////8AAAAA//8AAA=="),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAUABAAGAAcACAALAAkACAAKAAsADAAPAA0ADAAOAA8A"),
+"material": SubResource("StandardMaterial3D_0ciwp"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAD/f/7//7////9//v//vwAA/38AAP+/////fwAA/7//fwAA//9U1f9////+/1TV/38AAAAAVNX/f/7/AABU1X0lgdr+//zFgdp9Jf7//MV9JYHaAAD8xYHafSUAAPzFgdqB2v//qul9JX0l/v+q6YHagdoAAKrpfSV9JQAAqun///9/////f////3////9/VNVU1VTVVNVU1VTVVNVU1QDGAGMAxgBjAMYAYwDGAGP1lfpK9ZX6SvWV+kr1lfpK")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ao70f")
+
+[node name="foliage" instance=ExtResource("1_y5tws")]
+
+[node name="Plane" parent="." index="0"]
+mesh = SubResource("ArrayMesh_t36qb")
