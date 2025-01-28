@@ -54,7 +54,7 @@ size = Vector3(1.5, 1.975, 1.5)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_2o4ah")
-mouse_sensitivity = 0.01
+mouse_sensitivity = 0.005
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
@@ -100,6 +100,7 @@ fov = 90.0
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, 500, 0)
+collision_mask = 7
 
 [node name="arms" parent="Camera pivot/Camera3D" instance=ExtResource("4_33sgd")]
 transform = Transform3D(6.85142e-05, -0.000135648, 0.350169, 0.0419131, 0.347652, 0.000126478, -0.347652, 0.0419131, 8.42602e-05, 0.575082, -0.987028, -2.34919)
@@ -122,6 +123,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.14536)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D player"]
 shape = SubResource("BoxShape3D_0dfs6")
 
-[node name="Abilites" parent="." instance=ExtResource("5_h4kkq")]
+[node name="Abilites" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_h4kkq")]
 carrot_bomb_scene = ExtResource("7_g2tnl")
+player = NodePath("..")
 force = 20
