@@ -36,6 +36,8 @@ func _on_options_pressed() -> void:
 func _set_resolutions(id) -> void:
 	if id == 1:
 		get_window().size = Vector2(2560,1440)
+	elif id ==2:
+		get_window().size = Vector2(1920,1080)
 
 
 func _on_fullscreen_pressed() -> void:

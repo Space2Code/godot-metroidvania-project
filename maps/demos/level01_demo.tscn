@@ -1,7 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://17lufn62send"]
 
 [ext_resource type="PackedScene" uid="uid://cw1u8hgwv37ki" path="res://Objects/player.tscn" id="2_4ouim"]
-[ext_resource type="Texture2D" uid="uid://dkcle5nicbu0v" path="res://textures/sky/sky.png" id="3_tsuor"]
 [ext_resource type="FontFile" uid="uid://dp0ci4175pslj" path="res://resources/fonts/RobotoSlab/RobotoSlab-Regular.ttf" id="6_tn83p"]
 [ext_resource type="PackedScene" uid="uid://c8p4mxnlyp6j5" path="res://modules/gameplay/pickable.tscn" id="7_aui3r"]
 [ext_resource type="MeshLibrary" uid="uid://cpk1g7lw1t41v" path="res://resources/bush.tres" id="7_bgqhr"]
@@ -15,8 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://bvsqp31bmb53j" path="res://Objects/crystal.tscn" id="13_1p213"]
 [ext_resource type="PackedScene" uid="uid://crvfcqej3fnqg" path="res://Objects/stone-cliff.tscn" id="14_7dg62"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_17840"]
+load_path = "res://.godot/imported/sky.png-06c19dcd1d2ab7c805fb2aec4ceea36f.s3tc.ctex"
+
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3irlv"]
-panorama = ExtResource("3_tsuor")
+panorama = SubResource("CompressedTexture2D_17840")
 
 [sub_resource type="Sky" id="Sky_dolo4"]
 sky_material = SubResource("PanoramaSkyMaterial_3irlv")

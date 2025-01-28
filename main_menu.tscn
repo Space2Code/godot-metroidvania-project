@@ -13,7 +13,6 @@ grow_vertical = 2
 script = ExtResource("1_7ksqr")
 
 [node name="Pause" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,21 +51,21 @@ theme_override_constants/separation = 80
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme = ExtResource("1_s82ku")
-text = "Continue"
+text = "CONTINUE"
 alignment = 0
 
 [node name="Options" type="Button" parent="Pause/Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme = ExtResource("1_s82ku")
-text = "Options"
+text = "OPTIONS"
 alignment = 0
 
 [node name="About" type="Button" parent="Pause/Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme = ExtResource("1_s82ku")
-text = "About
+text = "ABOUT
 "
 alignment = 0
 
@@ -74,10 +73,11 @@ alignment = 0
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme = ExtResource("1_s82ku")
-text = "Exit"
+text = "QUIT"
 alignment = 0
 
 [node name="Options" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

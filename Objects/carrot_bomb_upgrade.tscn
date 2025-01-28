@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bbtxgdr363xhj"]
 
-[ext_resource type="Script" path="res://resources/scripts/carrot_bomb_upgrade.gd" id="1_4nqvs"]
+[ext_resource type="Script" path="res://resources/scripts/upgrade_pickup.gd" id="1_4nqvs"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_36avl"]
 radius = 0.15
@@ -9,7 +9,7 @@ height = 0.5
 [sub_resource type="SphereShape3D" id="SphereShape3D_mncav"]
 radius = 0.440924
 
-[node name="Carrot bomb upgrade" type="Node3D"]
+[node name="upgrade_pickup" type="Node3D"]
 script = ExtResource("1_4nqvs")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

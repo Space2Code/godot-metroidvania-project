@@ -1,14 +1,16 @@
 [gd_scene load_steps=11 format=3 uid="uid://c53buwm7k44yt"]
 
 [ext_resource type="PackedScene" uid="uid://b1j5eyo6s4k3h" path="res://maps/demos/new_metroidvaina_map.tscn" id="1_v5q6n"]
-[ext_resource type="Texture2D" uid="uid://dkcle5nicbu0v" path="res://textures/sky/sky.png" id="2_57hui"]
 [ext_resource type="PackedScene" uid="uid://cw1u8hgwv37ki" path="res://Objects/player.tscn" id="3_l1wb2"]
 [ext_resource type="PackedScene" uid="uid://bbtxgdr363xhj" path="res://Objects/carrot_bomb_upgrade.tscn" id="4_kbiqf"]
 [ext_resource type="PackedScene" uid="uid://dkjow4684487v" path="res://Objects/spruce_01.tscn" id="5_raa5c"]
 [ext_resource type="PackedScene" uid="uid://d12gp05dhg8b7" path="res://Objects/teleport_node.tscn" id="6_bb5e5"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_17840"]
+load_path = "res://.godot/imported/sky.png-06c19dcd1d2ab7c805fb2aec4ceea36f.s3tc.ctex"
+
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_38p7b"]
-panorama = ExtResource("2_57hui")
+panorama = SubResource("CompressedTexture2D_17840")
 
 [sub_resource type="Sky" id="Sky_gcr5o"]
 sky_material = SubResource("PanoramaSkyMaterial_38p7b")
@@ -40,7 +42,11 @@ shadow_enabled = true
 shadow_blur = 7.162
 
 [node name="Carrot bomb upgrade" parent="." instance=ExtResource("4_kbiqf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8979, -2.405, -9.50001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.726, -2.405, -7.20845)
+
+[node name="Carrot bomb upgrade2" parent="." instance=ExtResource("4_kbiqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6439, -2.405, -14.1984)
+type = 1
 
 [node name="progress_wall" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.29121, -2.44448, -6.72282)
@@ -67,4 +73,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.967529, 2.62982, -0.696564
 shape = SubResource("BoxShape3D_oiqiw")
 
 [node name="teleport_node" parent="." instance=ExtResource("6_bb5e5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 6, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 7.16088, 0.868037)
