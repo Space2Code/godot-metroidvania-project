@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqs3u87mp0ufb"]
+[gd_scene load_steps=5 format=3 uid="uid://dqs3u87mp0ufb"]
 
 [ext_resource type="PackedScene" uid="uid://c53buwm7k44yt" path="res://maps/demos/demo02.tscn" id="1_f4m4v"]
 [ext_resource type="PackedScene" uid="uid://b6p1mwnyhq82n" path="res://resources/crosshair.tscn" id="3_t7sqe"]
+[ext_resource type="PackedScene" uid="uid://c4csj3lia5jpu" path="res://resources/item_pickup.tscn" id="4_byspd"]
 [ext_resource type="PackedScene" uid="uid://rtddxsppqlo6" path="res://main_menu.tscn" id="4_p6dj1"]
 
 [node name="main" type="Node"]
@@ -26,3 +27,8 @@ render_target_update_mode = 4
 [node name="crosshair" parent="." instance=ExtResource("3_t7sqe")]
 
 [node name="Main menu" parent="." instance=ExtResource("4_p6dj1")]
+
+[node name="Item pickup gui" parent="." instance=ExtResource("4_byspd")]
+item_name = "Carrot Bomb"
+item_color = "#fc9003"
+item_descripiton = "You can destory weak structrucers by pressing G"
