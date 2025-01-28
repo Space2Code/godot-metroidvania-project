@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c2crjuovjkkma"]
 
-[ext_resource type="Script" path="res://Objects/carrot_bomb_logic.gd" id="1_34p5l"]
+[ext_resource type="Script" path="res://resources/scripts/carrot_bomb_logic.gd" id="1_34p5l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fua0x"]
 albedo_color = Color(1, 0.5125, 0.25, 1)
