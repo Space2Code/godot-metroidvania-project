@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cpq8muhmm7m3" path="res://modules/gameplay/potato-spells.tscn" id="2_f11kf"]
 [ext_resource type="PackedScene" uid="uid://b7mj6kycevqgq" path="res://modules/generic/quit.tscn" id="3_mvqrx"]
 [ext_resource type="PackedScene" uid="uid://bsgvyce44jkio" path="res://Objects/arms.tscn" id="4_33sgd"]
-[ext_resource type="PackedScene" uid="uid://chd2ghktkuryw" path="res://Objects/magic_potato.tscn" id="5_2sbnh"]
 [ext_resource type="PackedScene" uid="uid://6j412u5h0h2g" path="res://modules/gameplay/abilites.tscn" id="5_h4kkq"]
+[ext_resource type="PackedScene" uid="uid://duljehf3du7y" path="res://resources/models/potato/magic_potato.tscn" id="5_ntoku"]
 [ext_resource type="PackedScene" uid="uid://c2crjuovjkkma" path="res://Objects/carrot_bomb.tscn" id="7_g2tnl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m7eo5"]
@@ -104,8 +104,8 @@ collision_mask = 7
 [node name="arms" parent="Camera pivot/Camera3D" instance=ExtResource("4_33sgd")]
 transform = Transform3D(6.85142e-05, -0.000135648, 0.350169, 0.0419131, 0.347652, 0.000126478, -0.347652, 0.0419131, 8.42602e-05, 0.575082, -0.987028, -2.34919)
 
-[node name="magic potato" parent="Camera pivot/Camera3D/arms" instance=ExtResource("5_2sbnh")]
-transform = Transform3D(0.693299, -0.0310772, -0.182204, -0.184748, -0.13827, -0.679395, -0.00568589, 0.70338, -0.141606, -0.680527, 0.506849, -1.10326)
+[node name="magic potato" parent="Camera pivot/Camera3D/arms" instance=ExtResource("5_ntoku")]
+transform = Transform3D(-0.0310664, -0.813447, 0.161982, 0.46218, 0.117619, 0.679305, -0.688713, 0.115625, 0.44856, -0.0714021, 0.00885844, -0.6878)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera pivot/Camera3D"]
 libraries = {

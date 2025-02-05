@@ -1,40 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://cw1penr7uus85"]
+[gd_scene load_steps=10 format=3 uid="uid://cw1penr7uus85"]
 
 [ext_resource type="PackedScene" uid="uid://cxqpwuym5q7mr" path="res://maps/demos/new_map_ooohh.tscn" id="1_x8lj4"]
-[ext_resource type="MeshLibrary" uid="uid://cd5erxkdkw6pf" path="res://resources/spruce_mesh.tres" id="2_c61pe"]
 [ext_resource type="PackedScene" uid="uid://cw1u8hgwv37ki" path="res://Objects/player.tscn" id="3_i2d50"]
+[ext_resource type="PackedScene" uid="uid://dkjow4684487v" path="res://Objects/spruce_01.tscn" id="3_te2ce"]
+[ext_resource type="PackedScene" uid="uid://d12gp05dhg8b7" path="res://Objects/teleport_node.tscn" id="4_ik05a"]
+[ext_resource type="PackedScene" uid="uid://bbtxgdr363xhj" path="res://Objects/carrot_bomb_upgrade.tscn" id="5_enmbv"]
+[ext_resource type="MeshLibrary" uid="uid://cd5erxkdkw6pf" path="res://resources/spruce_mesh.tres" id="6_hq8un"]
 
 [sub_resource type="Environment" id="Environment_7nwm7"]
 ambient_light_energy = 0.0
 reflected_light_source = 1
-fog_enabled = true
 fog_light_color = Color(0.453627, 0.579171, 0.572939, 1)
-fog_light_energy = 0.65
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.086
+volumetric_fog_density = 0.0358
+volumetric_fog_length = 86.1
 
-[sub_resource type="LightmapGIData" id="LightmapGIData_rtrc5"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_b0nl7"]
+size = Vector3(7.65305, 11.8318, 10.3162)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ytvgq"]
+size = Vector3(2.8562, 12.9335, 71.503)
 
 [node name="Demo03" type="Node3D"]
 
 [node name="new map ooohh" parent="." instance=ExtResource("1_x8lj4")]
-
-[node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("2_c61pe")
-cell_size = Vector3(1, 1, 1)
-cell_octant_size = 16
-data = {
-"cells": PackedInt32Array(393200, 30, 0, 393195, 26, 0, 393196, 31, 0, 393188, 30, 0, 393185, 24, 0, 393182, 31, 0, 393192, 35, 0, 262113, 36, 0, 262127, 37, 0, 262122, 39, 0, 262118, 38, 0, 458715, 20, 0, 458713, 12, 0, 458724, 6, 0, 458738, 18, 0, 458737, 3, 0, 65558, 65508, 0, 65562, 65515, 0, 65567, 65524, 0, 131034, 65500, 0, 131023, 65497, 0, 131029, 65495, 0, 131043, 65492, 0, 131034, 65492, 0, 131040, 65497, 0, 131049, 65496, 0, 131056, 65495, 0, 131050, 65488, 0, 131019, 65492, 0, 131009, 65497, 0, 131013, 65498, 0, 131014, 65490, 0, 131003, 65494, 0, 131035, 65486, 0, 131046, 65483, 0, 131040, 65481, 0, 131035, 65483, 0, 131034, 65483, 0, 131031, 65484, 0, 131021, 65486, 0, 131009, 65491, 0, 131058, 65489, 0, 131063, 65490, 0, 131047, 65480, 0, 131046, 65480, 0, 131046, 65479, 0, 131045, 65479, 0, 131044, 65479, 0, 131055, 65479, 0, 131027, 65479, 0, 131026, 65479, 0, 131052, 65482, 0, 131054, 65501, 0, 131064, 65495, 0, 65536, 65485, 0, 131012, 65479, 0, 131001, 65487, 0, 131014, 65484, 0, 131028, 65489, 0, 131031, 30, 0, 131028, 26, 0, 131025, 31, 0, 131021, 25, 0, 131015, 23, 0, 131025, 37, 0, 131025, 36, 0, 131033, 37, 0, 131020, 36, 0, 131024, 45, 0, 130970, 1, 0, 130966, 65528, 0, 130969, 10, 0, 130969, 26, 0, 130967, 19, 0, 130970, 33, 0, 130979, 39, 0, 65480, 65506, 0, 65479, 65510, 0, 65488, 65508, 0, 65486, 65513, 0, 65499, 65504, 0, 65508, 65504, 0, 65505, 65511, 0, 65502, 65509, 0, 65493, 65503, 0, 65497, 65511, 0, 65479, 65517, 0, 65483, 65501, 0, 65513, 65499, 0, 65504, 65501, 0, 65508, 65496, 0, 65502, 65488, 0, 65492, 65497, 0, 65478, 65494, 0, 65487, 65488, 0, 65473, 65501, 0, 65496, 65503, 0, 65494, 65506, 0, 65465, 14, 0, 65477, 15, 0, 65492, 3, 0, 65476, 65528, 0, 65475, 1, 0, 65441, 0, 0, 65441, 1, 0, 65441, 2, 0, 65442, 2, 0, 65442, 3, 0, 65447, 5, 0, 65448, 5, 0, 65444, 14, 0, 65442, 17, 0, 65443, 17, 0, 65450, 14, 0, 65443, 6, 0, 65454, 9, 0, 65441, 23, 0, 65443, 28, 0, 65445, 32, 0, 65438, 28, 0, 65442, 19, 0, 65433, 14, 0, 65435, 6, 0, 65436, 19, 0, 65436, 21, 0, 65433, 27, 0, 65435, 29, 0, 65425, 19, 0, 65425, 20, 0, 65429, 8, 0, 65434, 65533, 0, 65489, 22, 0, 65486, 26, 0, 65480, 23, 0, 65487, 20, 0, 65493, 25, 0, 65492, 28, 0, 65487, 29, 0, 65495, 41, 0, 4, 27, 0, 65534, 26, 0, 65535, 31, 0, 25, 28, 0, 19, 28, 0, 31, 31, 0, 15, 22, 0, 327660, 65506, 0, 327660, 65516, 0, 327671, 65508, 0, 327667, 65505, 0, 327668, 65520, 0, 262152, 65504, 0, 262158, 65503, 0, 262153, 65514, 0, 262153, 65513, 0, 262156, 65518, 0, 262162, 65520, 0, 393237, 6, 0, 393242, 9, 0, 327710, 18, 0, 327708, 65535, 0, 327711, 5, 0, 327692, 10, 0, 327702, 16, 0, 327663, 65522, 0, 458685, 26, 0, 458680, 30, 0, 458669, 28, 0, 458667, 31, 0, 458691, 30, 0, 589752, 0, 0, 589744, 65534, 0, 589762, 65510, 0, 589758, 65508, 0, 589753, 65520, 0, 655290, 65514, 0, 655281, 65526, 0, 655287, 65528, 0, 655285, 65504, 0, 655271, 65505, 0, 655266, 65511, 0, 655266, 65521, 0, 655271, 65523, 0, 655276, 65514, 0, 2, 65525, 0, 65530, 65530, 0, 7, 1, 0)
-}
-metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7nwm7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.673167, 0.73949, 0, -0.73949, 0.673167, 0, 9.99246, 0)
-visible = false
-light_color = Color(0.80518, 0.86634, 0.722197, 1)
+light_color = Color(0.93, 0.78771, 0.6138, 1)
 light_energy = 1.495
 light_indirect_energy = 2.933
 light_bake_mode = 1
@@ -45,7 +41,59 @@ shadow_opacity = 0.53
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33, 0)
 mouse_sensitivity = 0.05
 
-[node name="LightmapGI" type="LightmapGI" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.673167, 0.73949, 0, -0.73949, 0.673167, 0, 9.99246, 0)
-quality = 2
-light_data = SubResource("LightmapGIData_rtrc5")
+[node name="Progression wall" type="StaticBody3D" parent="." groups=["kill_wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.313, 0, -6.83136)
+
+[node name="spruce_01" parent="Progression wall" instance=ExtResource("3_te2ce")]
+transform = Transform3D(0.999161, -0.035465, -0.0204757, -0.00258492, 0.444384, -0.895833, 0.0408698, 0.895134, 0.44392, 1.47453, 9.53674e-07, -4.13333)
+
+[node name="spruce_02" parent="Progression wall" instance=ExtResource("3_te2ce")]
+transform = Transform3D(0.999161, -0.035465, -0.0204757, 0.0375726, 0.595026, 0.802828, -0.0162887, -0.802924, 0.595859, -0.0377617, -0.548496, 4.20675)
+
+[node name="spruce_03" parent="Progression wall" instance=ExtResource("3_te2ce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1784, 0.133258, 1.09857)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Progression wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.316086, 0, 0)
+shape = SubResource("BoxShape3D_b0nl7")
+
+[node name="Progression wall2" type="StaticBody3D" parent="." groups=["kill_wall"]]
+transform = Transform3D(0.100917, 0, -0.994895, 0, 1, 0, 0.994895, 0, 0.100917, 5.39852, 0, 13.3877)
+
+[node name="spruce_01" parent="Progression wall2" instance=ExtResource("3_te2ce")]
+transform = Transform3D(0.999161, -0.035465, -0.0204757, -0.00258492, 0.444384, -0.895833, 0.0408698, 0.895134, 0.44392, 1.47453, 9.53674e-07, -4.13333)
+
+[node name="spruce_02" parent="Progression wall2" instance=ExtResource("3_te2ce")]
+transform = Transform3D(0.999161, -0.035465, -0.0204757, 0.0375726, 0.595026, 0.802828, -0.0162887, -0.802924, 0.595859, -0.0377617, -0.548496, 4.20675)
+
+[node name="spruce_03" parent="Progression wall2" instance=ExtResource("3_te2ce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1784, 0.133258, 1.09857)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Progression wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.316086, 0, 0)
+shape = SubResource("BoxShape3D_b0nl7")
+
+[node name="teleport_node" parent="." instance=ExtResource("4_ik05a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2805, 3.72391, 9.13845)
+
+[node name="upgrade_pickup" parent="." instance=ExtResource("5_enmbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.94862, 1.39803, 0.427643)
+
+[node name="upgrade_pickup2" parent="." instance=ExtResource("5_enmbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.94862, 1.39803, -2.97142)
+type = 1
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.6883, 0, 70.4625)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.824827, 0, -0.565385, 0, 1, 0, 0.565385, 0, 0.824827, 0.890812, 5.98917, -1.76781)
+shape = SubResource("BoxShape3D_ytvgq")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("6_hq8un")
+cell_octant_size = 16
+data = {
+"cells": PackedInt32Array(-65521, 47, 0, -65519, 43, 0, -65520, 43, 0, -65516, 46, 0, -65519, 49, 0, -65518, 46, 0, -65514, 41, 0, -65513, 36, 0, -65516, 38, 0, -65517, 42, 0, -65505, 23, 0, -65508, 27, 0, -65511, 30, 0, -65512, 33, 0, -65508, 32, 0, -65515, 34, 0, -65518, 40, 0, -65523, 47, 0, -65522, 45, 0, -65507, 22, 0, -65509, 25, 0, -65510, 27, 0, -65504, 26, 0, -65506, 29, 0, -65501, 21, 0, -65510, 35, 0, -65512, 39, 0, -65502, 29, 0, -65504, 31, 0, -65505, 33, 0, -65501, 25, 0, -65504, 27, 0, -65510, 37, 0, -65507, 35, 0, -65513, 44, 0, -65515, 44, 0, -65511, 41, 0, -65515, 48, 0, -65517, 51, 0, -65519, 52, 0, -65513, 47, 0, -65521, 50, 0, -65516, 36, 0, -65513, 31, 0, -65518, 38, 0, -65507, 38, 0, 10, 15, 0, 6, 28, 0, 9, 26, 0, 10, 29, 0, 65534, 30, 0, 65530, 33, 0, 65527, 30, 0, 3, 35, 0, 65526, 34, 0, 65520, 32, 0, 65518, 34, 0, 65517, 30, 0, 2, 26, 0, 5, 32, 0, 65535, 35, 0, 1, 31, 0, -65534, 21, 0, -65522, 22, 0, -65515, 23, 0, -65517, 21, 0, -65530, 41, 0, -28, 26, 0, -29, 28, 0, -25, 30, 0, -32, 32, 0, -26, 43, 0, -37, 31, 0, -38, 31, 0, -38, 32, 0, -37, 32, 0, -37, 33, 0, -38, 34, 0, -40, 31, 0, -41, 34, 0, -44, 30, 0, -44, 32, 0, -32, 47, 0, -32, 46, 0, -33, 46, 0, -33, 47, 0, -33, 48, 0, -35, 47, 0, -34, 50, 0, -37, 49, 0, -36, 52, 0, -39, 49, 0, -38, 52, 0, -36, 54, 0, -39, 51, 0, -39, 54, 0, -37, 10, 0, -38, 8, 0, -39, 11, 0, -39, 6, 0, -40, 6, 0, -39, 5, 0, -40, 9, 0, -42, 4, 0, -39, 3, 0, -42, 9, 0, -42, 6, 0, -43, 6, 0, -43, 11, 0, -44, 10, 0, -45, 12, 0, -45, 11, 0, -45, 6, 0, -46, 8, 0, -45, 2, 0, -48, 4, 0, -48, 11, 0, 262135, 3, 0, 262132, 4, 0, 262134, 10, 0, 262134, 11, 0, 262131, 16, 0, 262127, 15, 0, 262140, 7, 0, 262125, 8, 0, 262123, 7, 0, 262127, 5, 0, 262123, 11, 0, 262129, 11, 0, 262137, 8, 0, 196614, 4, 0, 196616, 0, 0, 196619, 65534, 0, 196624, 65535, 0, 196619, 4, 0, 196623, 3, 0, 196616, 6, 0, 196620, 2, 0, 196622, 7, 0, 196627, 6, 0, 196631, 4, 0, 196632, 7, 0, 196635, 7, 0, 196631, 12, 0, 196634, 12, 0, 196639, 13, 0, 196645, 14, 0, 196638, 16, 0, 196643, 12, 0, 196646, 10, 0, 196625, 10, 0, 196619, 8, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 3, 0)
