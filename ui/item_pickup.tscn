@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4csj3lia5jpu"]
+[gd_scene load_steps=4 format=3 uid="uid://c4csj3lia5jpu"]
 
 [ext_resource type="Script" path="res://resources/scripts/item_popup.gd" id="1_0ydnc"]
+[ext_resource type="FontFile" uid="uid://c36rjfr5b21yp" path="res://resources/fonts/Armante/Amarante-Regular.ttf" id="2_l1q0x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wcwv8"]
 bg_color = Color(0.0633967, 0.0611, 0.13, 0.839216)
@@ -37,12 +38,14 @@ theme_override_constants/margin_bottom = 50
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l1q0x")
 theme_override_font_sizes/font_size = 50
 text = "YOU HAVE UNLOCKED"
 horizontal_alignment = 1
 
 [node name="item_name" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l1q0x")
 theme_override_font_sizes/font_size = 35
 text = "carrot bomb"
 horizontal_alignment = 1
@@ -54,6 +57,19 @@ theme_override_constants/margin_top = 40
 [node name="item_description" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer2"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l1q0x")
 theme_override_font_sizes/font_size = 25
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 325
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.629675, 0.629675, 0.629675, 1)
+theme_override_fonts/font = ExtResource("2_l1q0x")
+theme_override_font_sizes/font_size = 30
+text = "Press ENTER to close"
+horizontal_alignment = 1
