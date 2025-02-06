@@ -43,10 +43,12 @@ shadow_blur = 7.162
 
 [node name="Carrot bomb upgrade" parent="." instance=ExtResource("4_kbiqf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.726, -2.405, -7.20845)
+colors = 1
 
 [node name="Carrot bomb upgrade2" parent="." instance=ExtResource("4_kbiqf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6439, -2.405, -14.1984)
 type = 1
+colors = 2
 
 [node name="progress_wall" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.29121, -2.44448, -6.72282)
