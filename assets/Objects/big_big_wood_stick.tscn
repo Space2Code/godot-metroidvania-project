@@ -1,0 +1,136 @@
+[gd_scene load_steps=19 format=3 uid="uid://dfkyflvykso5b"]
+
+[ext_resource type="PackedScene" uid="uid://dx4qc76aqg6cn" path="res://assets/models/big big wood stick.glb" id="1_nwqy4"]
+[ext_resource type="Texture2D" uid="uid://o10t1dj8omdq" path="res://assets/textures/nature/fire/fire_01.png" id="2_vjet7"]
+[ext_resource type="Texture2D" uid="uid://5j440w2hg50m" path="res://assets/textures/nature/fire/smoke_06.png" id="3_j8xih"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8iy2i"]
+height = 3.60971
+radius = 0.137233
+
+[sub_resource type="Gradient" id="Gradient_nr5qf"]
+offsets = PackedFloat32Array(0, 0.409091)
+colors = PackedColorArray(0.78, 0.442, 0, 1, 0.89, 0.148333, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_istmi"]
+gradient = SubResource("Gradient_nr5qf")
+
+[sub_resource type="Curve" id="Curve_wojys"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.241758, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_gcreu"]
+curve = SubResource("Curve_wojys")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3jgvh"]
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, 1, 0)
+spread = 5.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 0.999998
+linear_accel_max = 0.999998
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_gcreu")
+color_ramp = SubResource("GradientTexture1D_istmi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubx41"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_vjet7")
+texture_filter = 0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_cbksx"]
+material = SubResource("StandardMaterial3D_ubx41")
+
+[sub_resource type="Gradient" id="Gradient_jab0e"]
+offsets = PackedFloat32Array(0, 0.487013, 0.746753, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.168627, 1, 1, 1, 0.392157, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rvtrj"]
+gradient = SubResource("Gradient_jab0e")
+
+[sub_resource type="Curve" id="Curve_ouh03"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.313187, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_mpu47"]
+curve = SubResource("Curve_ouh03")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_as8gu"]
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, 1, 0)
+spread = 5.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 0.999998
+linear_accel_max = 0.999998
+scale_curve = SubResource("CurveTexture_mpu47")
+color_ramp = SubResource("GradientTexture1D_rvtrj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m5gla"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_j8xih")
+texture_filter = 0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_8f3ui"]
+material = SubResource("StandardMaterial3D_m5gla")
+
+[node name="big big wood stick" instance=ExtResource("1_nwqy4")]
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(0.084, 0, 0, 0, 0.37, 0, 0, 0, 0.084, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61078, 0)
+shape = SubResource("CylinderShape3D_8iy2i")
+
+[node name="flames" type="GPUParticles3D" parent="." index="2"]
+transform = Transform3D(0.995169, 0, 0, 0, 0.995169, 0, 0, 0, 0.995169, 0, 3.23904, 0.0219879)
+amount = 16
+preprocess = 2.0
+process_material = SubResource("ParticleProcessMaterial_3jgvh")
+draw_pass_1 = SubResource("QuadMesh_cbksx")
+
+[node name="smoke" type="GPUParticles3D" parent="." index="3"]
+transform = Transform3D(0.995169, 0, 0, 0, 0.995169, 0, 0, 0, 0.995169, 0, 3.47369, 0.0219879)
+amount = 16
+lifetime = 2.0
+preprocess = 2.0
+speed_scale = 0.66
+process_material = SubResource("ParticleProcessMaterial_as8gu")
+draw_pass_1 = SubResource("QuadMesh_8f3ui")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.79803, 0)
+layers = 524289
+light_color = Color(1, 0.4825, 0.31, 1)
+light_energy = 5.34
+light_indirect_energy = 1.63
+shadow_enabled = true
+shadow_bias = 0.527
+omni_range = 14.0

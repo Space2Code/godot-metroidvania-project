@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://776ukcemjbwk"]
+
+[ext_resource type="PackedScene" uid="uid://7qdti4145sxq" path="res://assets/models/forest/crystals/bundle_crystals.glb" id="1_k3r71"]
+
+[node name="bundle_crystals" instance=ExtResource("1_k3r71")]
+
+[node name="bundle_of_crystals" parent="." index="0"]
+transform = Transform3D(0.531485, -0.062755, -1.0212e-09, 0.0933118, 0.346541, -0.0942706, 0.0165482, 0.0614565, 0.531573, -0.018219, 0.121572, 0.0903616)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0680425, 2.59782, 0)
+layers = 524289
+light_color = Color(0.691424, 0.64523, 0.938422, 1)
+light_energy = 8.198
+light_specular = 3.275
+omni_range = 9.30102

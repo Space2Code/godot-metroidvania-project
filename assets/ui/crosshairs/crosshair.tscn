@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6p1mwnyhq82n"]
+
+[ext_resource type="Texture2D" uid="uid://b0p57h3umfeb1" path="res://assets/ui/crosshairs/crosshair002.png" id="1_jmbsc"]
+
+[node name="crosshair" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_jmbsc")
+expand_mode = 1

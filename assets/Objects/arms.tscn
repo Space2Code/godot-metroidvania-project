@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsgvyce44jkio"]
+
+[ext_resource type="PackedScene" uid="uid://ba718wi8wt1u3" path="res://assets/models/Player/arms.glb" id="1_3vmsi"]
+
+[node name="arms" instance=ExtResource("1_3vmsi")]
+
+[node name="Plane" parent="." index="0"]
+layers = 524288

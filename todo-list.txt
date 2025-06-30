@@ -1,0 +1,11 @@
+								______Todo list_______
+
+- [] Fix shit
+- [doing] Redo the camera controlls (Feels laggy for some reason)
+- [] Add in a weapon and make it shoot projectiles
+- [] Add dummys to test map
+- [] Make the dummys move
+- [] Have dummys shoot back 
+- [] A health bar
+- [] Mana bar (maybe?) 
+- [] New crosshair
