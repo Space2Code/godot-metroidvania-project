@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://xbvm8bitfhcf"]
+
+[ext_resource type="Texture2D" uid="uid://ckm27i3qk7wmx" path="res://assets/Old/textures/dev/Orange/texture_07.png" id="1_y3kcd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkede"]
+albedo_texture = ExtResource("1_y3kcd")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ne3fs"]
+material = SubResource("StandardMaterial3D_fkede")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1f8c1"]
+
+[node name="box" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 4
+collision_mask = 7
+mass = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_ne3fs")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_1f8c1")

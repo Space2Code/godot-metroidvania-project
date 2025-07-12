@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://chd2ghktkuryw"]
+
+[ext_resource type="PackedScene" uid="uid://dydhufydqll2y" path="res://assets/Old/models/potato/potato.glb" id="1_to787"]
+
+[node name="magic potato" instance=ExtResource("1_to787")]
+
+[node name="Icosphere" parent="." index="0"]
+layers = 524288

@@ -11,19 +11,19 @@ config_version=5
 [application]
 
 config/name="Metoridvania project"
-run/main_scene="res://main.tscn"
+run/main_scene="res://assets/New/textures/main.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://assets/textures/icon.svg"
+config/icon="res://assets/Old/textures/icon.svg"
 
 [autoload]
 
-GameManager="*res://assets/scripts/game_manager.gd"
+GameManager="*res://assets/Old/scripts/game_manager.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [dotnet]
 

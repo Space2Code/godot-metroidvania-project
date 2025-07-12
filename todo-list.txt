@@ -1,7 +1,7 @@
 								______Todo list_______
 
 - [] Fix shit
-- [doing] Redo the camera controlls (Feels laggy for some reason)
+- [Done] Redo the camera controlls (Feels laggy for some reason)
 - [] Add in a weapon and make it shoot projectiles
 - [] Add dummys to test map
 - [] Make the dummys move

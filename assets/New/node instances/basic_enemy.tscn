@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7133dtehcj1d"]
+
+[ext_resource type="Script" uid="uid://dk3257vib30vh" path="res://assets/New/scripts/basic_enemy_ai.gd" id="1_5c0gr"]
+[ext_resource type="Material" uid="uid://date4judmoceb" path="res://assets/New/materials/red-dev.tres" id="1_oebsu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5c0gr"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_16rpq"]
+
+[node name="BasicEnemy" type="Node3D"]
+script = ExtResource("1_5c0gr")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("CapsuleShape3D_5c0gr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+material_override = ExtResource("1_oebsu")
+mesh = SubResource("CapsuleMesh_16rpq")
+skeleton = NodePath("../..")

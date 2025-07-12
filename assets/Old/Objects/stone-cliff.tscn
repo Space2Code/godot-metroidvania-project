@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://crvfcqej3fnqg"]
+
+[ext_resource type="PackedScene" uid="uid://bw17c6atsd6im" path="res://assets/Old/models/forest/cliffside.glb" id="1_nkbff"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_js77p"]
+size = Vector3(6.11865, 7.49446, 3.14146)
+
+[node name="cliffside" instance=ExtResource("1_nkbff")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.992597, -0.121454, 0, 0.121454, 0.992597, -0.118408, 2.7438, -0.175185)
+shape = SubResource("BoxShape3D_js77p")
