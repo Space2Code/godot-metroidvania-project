@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://onijncdv4o43"]
+
+[ext_resource type="FontFile" uid="uid://bsq3yfvriwqm2" path="res://assets/New/ui/fonts/Aubrey-Regular.ttf" id="1_7pxno"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sbpsy"]
+bg_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhof5"]
+bg_color = Color(0.976471, 0.176471, 0.290196, 1)
+
+[resource]
+ProgressBar/font_sizes/font_size = 25
+ProgressBar/fonts/font = ExtResource("1_7pxno")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_sbpsy")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_uhof5")

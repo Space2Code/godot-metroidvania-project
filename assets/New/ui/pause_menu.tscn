@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp0kly48fxqgu"]
+[gd_scene load_steps=4 format=3 uid="uid://cp0kly48fxqgu"]
 
-[ext_resource type="Script" uid="uid://q2a2ysponrae" path="res://assets/New/scripts/pause_menu.gd" id="1_b5ct2"]
+[ext_resource type="Script" uid="uid://q2a2ysponrae" path="res://assets/New/ui/scripts/pause_menu.gd" id="1_b5ct2"]
 [ext_resource type="Theme" uid="uid://nbqrk2kdah5b" path="res://assets/New/ui/themes/menu.tres" id="1_u2vh8"]
+[ext_resource type="FontFile" uid="uid://c36rjfr5b21yp" path="res://assets/Old/ui/fonts/Armante/Amarante-Regular.ttf" id="3_cmw4u"]
 
 [node name="pause_menu" type="Control"]
 layout_mode = 3
@@ -46,7 +47,11 @@ theme_override_constants/separation = 70
 [node name="Paused" type="Label" parent="main/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_u2vh8")
-text = "Paused"
+theme_override_colors/font_color = Color(0.215686, 0.431373, 0.286275, 1)
+theme_override_colors/font_outline_color = Color(0.0941176, 0.160784, 0.180392, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("3_cmw4u")
+text = "PAUSED"
 horizontal_alignment = 1
 
 [node name="Continue" type="Button" parent="main/PanelContainer/MarginContainer/VBoxContainer"]
@@ -95,7 +100,11 @@ theme_override_constants/separation = 70
 [node name="Options" type="Label" parent="options/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_u2vh8")
-text = "Options"
+theme_override_colors/font_color = Color(0.215686, 0.431373, 0.286275, 1)
+theme_override_colors/font_outline_color = Color(0.0941176, 0.160784, 0.180392, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("3_cmw4u")
+text = "OPTIONS"
 horizontal_alignment = 1
 
 [node name="OptionButton" type="OptionButton" parent="options/PanelContainer/MarginContainer/VBoxContainer"]

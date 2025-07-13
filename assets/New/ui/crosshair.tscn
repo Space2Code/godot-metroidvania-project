@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://blf681oknuof0"]
+
+[ext_resource type="Texture2D" uid="uid://dbbly7aicv56s" path="res://assets/New/textures/crosshair/dotCrossHair.png" id="1_hssvu"]
+
+[node name="Crosshair" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("1_hssvu")

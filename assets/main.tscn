@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqs3u87mp0ufb"]
+
+[ext_resource type="PackedScene" uid="uid://c00dl3s46c1n2" path="res://assets/New/maps/testing_map.tscn" id="1_06ig3"]
+[ext_resource type="PackedScene" uid="uid://cp0kly48fxqgu" path="res://assets/New/ui/pause_menu.tscn" id="2_2d37k"]
+[ext_resource type="PackedScene" uid="uid://blf681oknuof0" path="res://assets/New/ui/crosshair.tscn" id="3_2d37k"]
+[ext_resource type="PackedScene" uid="uid://cnuddt50cd2xl" path="res://assets/New/ui/item_pick_up_screen.tscn" id="4_836ik"]
+
+[node name="main" type="Node"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+stretch = true
+stretch_shrink = 4
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(480, 270)
+render_target_update_mode = 4
+
+[node name="testing_map" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_06ig3")]
+
+[node name="Crosshair" parent="SubViewportContainer" instance=ExtResource("3_2d37k")]
+layout_mode = 2
+
+[node name="pause_menu" parent="SubViewportContainer" instance=ExtResource("2_2d37k")]
+layout_mode = 2
+
+[node name="ItemPickUpScreen" parent="SubViewportContainer" instance=ExtResource("4_836ik")]
+layout_mode = 2

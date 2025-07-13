@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://ynot8rauvv2v"]
+
+[ext_resource type="FontFile" uid="uid://bsq3yfvriwqm2" path="res://assets/New/ui/fonts/Aubrey-Regular.ttf" id="1_p0svr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3sh0"]
+bg_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0svr"]
+bg_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+
+[resource]
+Label/colors/font_color = Color(0.988235, 0.988235, 0.94902, 1)
+Label/font_sizes/font_size = 60
+Label/fonts/font = ExtResource("1_p0svr")
+Panel/styles/panel = SubResource("StyleBoxFlat_e3sh0")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_p0svr")

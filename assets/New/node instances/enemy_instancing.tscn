@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c23tiakji57or"]
+
+[ext_resource type="Script" uid="uid://vsyy4dx7apqk" path="res://assets/New/scripts/enemy_instancing.gd" id="1_bweop"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rfoij"]
+height = 0.001
+radius = 4.0
+
+[node name="Enemy Instancing" type="Node3D"]
+script = ExtResource("1_bweop")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_rfoij")

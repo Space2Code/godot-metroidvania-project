@@ -13,6 +13,8 @@ extends CharacterBody3D
 var yaw_input = 0.0
 var pitch_input = 0.0
 
+func _enter_tree() -> void:
+	Global.player = self
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -24,13 +26,17 @@ func camera_controller ():
 	pitch_input = 0
 	yaw_input = 0
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("pewpew"):
+		hit_scan_shooting()
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += Vector3(0,-9.82,0) * delta
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 	
 	# Handles camera and head rotation
@@ -55,5 +61,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			yaw_input = - event.screen_relative.x * mouse_sensitivity 
 			pitch_input = - event.screen_relative.y * mouse_sensitivity
 
-func hit_scan():
-	pass
+func hit_scan_shooting():
+	var collider = raycast.get_collider()
+	if raycast.is_colliding() and collider.is_in_group("Enemy"):
+		collider.get_parent().damage()
+		print("die")
+	else: print("null")

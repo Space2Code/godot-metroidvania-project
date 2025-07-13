@@ -31,3 +31,5 @@ fov = 90.0
 [node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D/head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0143079, 0)
 target_position = Vector3(0, 0, -20)
+
+[connection signal="visibility_changed" from="CharacterBody3D/head/RayCast3D" to="CharacterBody3D" method="_on_ray_cast_3d_visibility_changed"]

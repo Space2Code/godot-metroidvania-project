@@ -7,10 +7,10 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_wi13y"]
 material = ExtResource("1_sorkf")
-size = Vector3(20, 0.5, 20)
+size = Vector3(50, 0.5, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qcilm"]
-size = Vector3(20, 0.5, 20)
+size = Vector3(50, 0.5, 50)
 
 [sub_resource type="BoxMesh" id="BoxMesh_pl6xp"]
 
@@ -49,3 +49,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.986078, 1.59257, -1.93098)
 
 [node name="BasicEnemy" parent="." instance=ExtResource("4_vdtvx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0722133, 1.25, 4.00676)
+
+[node name="BasicEnemy2" parent="." instance=ExtResource("4_vdtvx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.59579, 1.25, -0.425091)
+
+[node name="BasicEnemy3" parent="." instance=ExtResource("4_vdtvx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85395, 1.25, 5.903)
+
+[node name="BasicEnemy4" parent="." instance=ExtResource("4_vdtvx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.50264, 1.25, 1.83402)

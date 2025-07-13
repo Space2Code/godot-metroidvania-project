@@ -1,16 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7133dtehcj1d"]
+[gd_scene load_steps=8 format=3 uid="uid://b7133dtehcj1d"]
 
 [ext_resource type="Script" uid="uid://dk3257vib30vh" path="res://assets/New/scripts/basic_enemy_ai.gd" id="1_5c0gr"]
 [ext_resource type="Material" uid="uid://date4judmoceb" path="res://assets/New/materials/red-dev.tres" id="1_oebsu"]
+[ext_resource type="Theme" uid="uid://onijncdv4o43" path="res://assets/New/ui/themes/enemy_theme.tres" id="3_16rpq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5c0gr"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_16rpq"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_16rpq"]
+size = Vector3(1, 0.2, 0.38)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_16rpq"]
+viewport_path = NodePath("SubViewport")
+
 [node name="BasicEnemy" type="Node3D"]
 script = ExtResource("1_5c0gr")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="RigidBody3D" type="RigidBody3D" parent="." groups=["Enemy"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("CapsuleShape3D_5c0gr")
@@ -19,3 +26,41 @@ shape = SubResource("CapsuleShape3D_5c0gr")
 material_override = ExtResource("1_oebsu")
 mesh = SubResource("CapsuleMesh_16rpq")
 skeleton = NodePath("../..")
+
+[node name="Eyes" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.435413, 0.34895)
+mesh = SubResource("BoxMesh_16rpq")
+skeleton = NodePath("../..")
+
+[node name="Display Health bar" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09357, 0)
+cast_shadow = 0
+texture = SubResource("ViewportTexture_16rpq")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(512, 100)
+
+[node name="Health UI" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 62.0
+grow_horizontal = 2
+size_flags_vertical = 0
+
+[node name="Health" type="ProgressBar" parent="SubViewport/Health UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.311
+anchor_top = 0.29
+anchor_right = 0.689
+anchor_bottom = 0.726
+offset_left = -0.120056
+offset_top = 0.0199986
+offset_right = 0.119995
+offset_bottom = -0.012001
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_16rpq")
+value = 100.0
