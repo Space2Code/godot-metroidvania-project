@@ -1,20 +1,33 @@
-[gd_scene load_steps=9 format=3 uid="uid://c00dl3s46c1n2"]
+[gd_scene load_steps=15 format=3 uid="uid://c00dl3s46c1n2"]
 
 [ext_resource type="Material" uid="uid://do7ge7x35048" path="res://assets/New/materials/dev/green-dev.tres" id="1_sorkf"]
 [ext_resource type="Material" uid="uid://34csq1j5ujng" path="res://assets/New/materials/dev/black-dev.tres" id="2_17gwo"]
 [ext_resource type="PackedScene" uid="uid://bsy2qllpmlg3m" path="res://assets/New/node instances/player_new.tscn" id="3_u8ick"]
 [ext_resource type="PackedScene" uid="uid://b7133dtehcj1d" path="res://assets/New/node instances/basic_enemy.tscn" id="4_vdtvx"]
+[ext_resource type="PackedScene" uid="uid://c23tiakji57or" path="res://assets/New/node instances/enemy_instancing.tscn" id="5_6eq47"]
+[ext_resource type="PackedScene" uid="uid://dkxtawdjrmnwb" path="res://assets/New/node instances/enemy_bullet.tscn" id="6_fjyhf"]
+[ext_resource type="Script" uid="uid://8lqi1jhgm63g" path="res://assets/New/scripts/death_box.gd" id="7_x0ydn"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_wi13y"]
 material = ExtResource("1_sorkf")
-size = Vector3(50, 0.5, 50)
+size = Vector3(100, 0.5, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qcilm"]
-size = Vector3(50, 0.5, 50)
+size = Vector3(100, 0.5, 100)
 
 [sub_resource type="BoxMesh" id="BoxMesh_pl6xp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_igqee"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6eq47"]
+material = ExtResource("2_17gwo")
+size = Vector3(10, 4, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fjyhf"]
+size = Vector3(10, 4, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x0ydn"]
+size = Vector3(1000, 1, 1000)
 
 [node name="testing_map" type="Node3D"]
 
@@ -58,3 +71,177 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85395, 1.25, 5.903)
 
 [node name="BasicEnemy4" parent="." instance=ExtResource("4_vdtvx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.50264, 1.25, 1.83402)
+
+[node name="Enemy Instancing" parent="." instance=ExtResource("5_6eq47")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6781, 0.25, -14.2707)
+
+[node name="Labyrinth" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Labyrinth" groups=["Map"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1486, 1.5, -8.08659)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Labyrinth/StaticBody3D"]
+mesh = SubResource("BoxMesh_6eq47")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Labyrinth/StaticBody3D"]
+shape = SubResource("BoxShape3D_fjyhf")
+
+[node name="StaticBody3D11" type="StaticBody3D" parent="Labyrinth" groups=["Map"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5039, 1.5, -17.685)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Labyrinth/StaticBody3D11"]
+mesh = SubResource("BoxMesh_6eq47")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Labyrinth/StaticBody3D11"]
+shape = SubResource("BoxShape3D_fjyhf")
+
+[node name="StaticBody3D12" type="StaticBody3D" parent="Labyrinth" groups=["Map"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4579, 1.5, -17.685)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Labyrinth/StaticBody3D12"]
+mesh = SubResource("BoxMesh_6eq47")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Labyrinth/StaticBody3D12"]
+shape = SubResource("BoxShape3D_fjyhf")
+
+[node name="StaticBody3D8" type="StaticBody3D" parent="Labyrinth" groups=["Map"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8805, 1.5, -8.08659)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Labyrinth/StaticBody3D8"]
+mesh = SubResource("BoxMesh_6eq47")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Labyrinth/StaticBody3D8"]
+shape = SubResource("BoxShape3D_fjyhf")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Labyrinth" groups=["Map"]]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.6273, 1.5, -8.90029)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Labyrinth/StaticBody3D2"]
+mesh = SubResource("BoxMesh_6eq47")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Labyrinth/StaticBody3D2"]
+shape = SubResource("BoxShape3D_fjyhf")
+
+[node name="StaticBody3D14" type="StaticBody3D" parent="Labyrinth" groups=["Map"]]
+transform = Transform3D(-0.843841, 0, -0.536593, 0, 1, 0, 0.536593, 0, -0.843841, 16.9901, 1.5, -11.2052)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Labyrinth/StaticBody3D14"]
+mesh = SubResource("BoxMesh_6eq47")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Labyrinth/StaticBody3D14"]
+shape = SubResource("BoxShape3D_fjyhf")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Labyrinth" groups=["Map"]]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.6273, 1.5, 5.23872)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Labyrinth/StaticBody3D3"]
+mesh = SubResource("BoxMesh_6eq47")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Labyrinth/StaticBody3D3"]
+shape = SubResource("BoxShape3D_fjyhf")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Labyrinth" groups=["Map"]]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.6439, 1.5, 0.265726)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Labyrinth/StaticBody3D4"]
+mesh = SubResource("BoxMesh_6eq47")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Labyrinth/StaticBody3D4"]
+shape = SubResource("BoxShape3D_fjyhf")
+
+[node name="StaticBody3D9" type="StaticBody3D" parent="Labyrinth" groups=["Map"]]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 24.8474, 1.5, -3.11947)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Labyrinth/StaticBody3D9"]
+mesh = SubResource("BoxMesh_6eq47")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Labyrinth/StaticBody3D9"]
+shape = SubResource("BoxShape3D_fjyhf")
+
+[node name="StaticBody3D13" type="StaticBody3D" parent="Labyrinth" groups=["Map"]]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 24.8474, 1.5, -13.1195)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Labyrinth/StaticBody3D13"]
+mesh = SubResource("BoxMesh_6eq47")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Labyrinth/StaticBody3D13"]
+shape = SubResource("BoxShape3D_fjyhf")
+
+[node name="StaticBody3D10" type="StaticBody3D" parent="Labyrinth" groups=["Map"]]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 24.8474, 1.5, 5.88053)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Labyrinth/StaticBody3D10"]
+mesh = SubResource("BoxMesh_6eq47")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Labyrinth/StaticBody3D10"]
+shape = SubResource("BoxShape3D_fjyhf")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="Labyrinth" groups=["Map"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7886, 1.5, 2.1699)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Labyrinth/StaticBody3D5"]
+mesh = SubResource("BoxMesh_6eq47")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Labyrinth/StaticBody3D5"]
+shape = SubResource("BoxShape3D_fjyhf")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="Labyrinth" groups=["Map"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9154, 1.5, 8.59387)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Labyrinth/StaticBody3D6"]
+mesh = SubResource("BoxMesh_6eq47")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Labyrinth/StaticBody3D6"]
+shape = SubResource("BoxShape3D_fjyhf")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="Labyrinth" groups=["Map"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.9154, 1.5, 8.59387)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Labyrinth/StaticBody3D7"]
+mesh = SubResource("BoxMesh_6eq47")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Labyrinth/StaticBody3D7"]
+shape = SubResource("BoxShape3D_fjyhf")
+
+[node name="enemy_bullet" parent="." instance=ExtResource("6_fjyhf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.32351, 1.76192, 0)
+
+[node name="death_box" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.864, 0)
+script = ExtResource("7_x0ydn")
+metadata/_edit_group_ = true
+
+[node name="Area3D" type="Area3D" parent="death_box"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="death_box/Area3D"]
+shape = SubResource("BoxShape3D_x0ydn")
+
+[connection signal="body_entered" from="death_box/Area3D" to="death_box" method="_on_area_3d_body_entered"]

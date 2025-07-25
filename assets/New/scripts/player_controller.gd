@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var acceleration = 0.5
 @export var friction = 0.2
 @export var mouse_sensitivity = 0.1
+@export var sprint_speed = 2.0
 
 @onready var camera = $head/Camera3D
 @onready var head = $head
@@ -12,9 +13,12 @@ extends CharacterBody3D
 
 var yaw_input = 0.0
 var pitch_input = 0.0
+var is_player_sprinting = false
+var main_health: float = 100.0
 
 func _enter_tree() -> void:
 	Global.player = self
+	Global.player_health = main_health
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -39,6 +43,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 	
+	if Input.is_action_pressed("sprint"):
+		is_player_sprinting = true
+	else:
+		is_player_sprinting = false
 	# Handles camera and head rotation
 	camera_controller()
 	
@@ -46,9 +54,12 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("Left", "Right", "Forwards", "Backwards")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
+	if direction and is_player_sprinting == false:
 		velocity.x = lerp(velocity.x,direction.x * speed, acceleration)
 		velocity.z = lerp(velocity.z, direction.z * speed, acceleration)
+	elif direction and is_player_sprinting:
+		velocity.x = lerp(velocity.x,direction.x * sprint_speed, acceleration)
+		velocity.z = lerp(velocity.z, direction.z * sprint_speed, acceleration)
 	else:
 		velocity.x = lerp(velocity.x, 0.0, friction)
 		velocity.z = lerp(velocity.z, 0.0, friction)
@@ -64,6 +75,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func hit_scan_shooting():
 	var collider = raycast.get_collider()
 	if raycast.is_colliding() and collider.is_in_group("Enemy"):
-		collider.get_parent().damage()
-		print("die")
+		collider.get_parent().take_damage()
 	else: print("null")
+
+func take_damage(taken_damage) -> void:
+	Global.player_health -= taken_damage

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7133dtehcj1d"]
+[gd_scene load_steps=9 format=3 uid="uid://b7133dtehcj1d"]
 
 [ext_resource type="Script" uid="uid://dk3257vib30vh" path="res://assets/New/scripts/basic_enemy_ai.gd" id="1_5c0gr"]
 [ext_resource type="Material" uid="uid://date4judmoceb" path="res://assets/New/materials/red-dev.tres" id="1_oebsu"]
+[ext_resource type="PackedScene" uid="uid://dkxtawdjrmnwb" path="res://assets/New/node instances/enemy_bullet.tscn" id="2_a2dva"]
 [ext_resource type="Theme" uid="uid://onijncdv4o43" path="res://assets/New/ui/themes/enemy_theme.tres" id="3_16rpq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5c0gr"]
@@ -16,26 +17,7 @@ viewport_path = NodePath("SubViewport")
 
 [node name="BasicEnemy" type="Node3D"]
 script = ExtResource("1_5c0gr")
-
-[node name="RigidBody3D" type="RigidBody3D" parent="." groups=["Enemy"]]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-shape = SubResource("CapsuleShape3D_5c0gr")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-material_override = ExtResource("1_oebsu")
-mesh = SubResource("CapsuleMesh_16rpq")
-skeleton = NodePath("../..")
-
-[node name="Eyes" type="MeshInstance3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.435413, 0.34895)
-mesh = SubResource("BoxMesh_16rpq")
-skeleton = NodePath("../..")
-
-[node name="Display Health bar" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09357, 0)
-cast_shadow = 0
-texture = SubResource("ViewportTexture_16rpq")
+bullet_prefab = ExtResource("2_a2dva")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
@@ -64,3 +46,23 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_16rpq")
 value = 100.0
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." groups=["Enemy"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("CapsuleShape3D_5c0gr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+material_override = ExtResource("1_oebsu")
+mesh = SubResource("CapsuleMesh_16rpq")
+skeleton = NodePath("../..")
+
+[node name="Eyes" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.435413, 0.34895)
+mesh = SubResource("BoxMesh_16rpq")
+skeleton = NodePath("../..")
+
+[node name="Display Health bar" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09357, 0)
+cast_shadow = 0
+texture = SubResource("ViewportTexture_16rpq")
