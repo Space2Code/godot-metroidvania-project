@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://dkxtawdjrmnwb"]
 
-[ext_resource type="Script" uid="uid://clfwufb3lwacy" path="res://assets/New/scripts/enemy_bullet.gd" id="1_teahm"]
-[ext_resource type="Material" uid="uid://date4judmoceb" path="res://assets/New/materials/red-dev.tres" id="2_3dihn"]
-[ext_resource type="Material" uid="uid://34csq1j5ujng" path="res://assets/New/materials/dev/black-dev.tres" id="3_1vbgt"]
+[ext_resource type="Script" uid="uid://clfwufb3lwacy" path="res://assets/New/scripts/enemy_bullet.gd" id="1_1qv0p"]
+[ext_resource type="Material" uid="uid://date4judmoceb" path="res://assets/New/materials/dev/red-dev.tres" id="2_5xbqw"]
+[ext_resource type="Material" uid="uid://34csq1j5ujng" path="res://assets/New/materials/dev/black-dev.tres" id="3_623lg"]
 
 [sub_resource type="TextMesh" id="TextMesh_teahm"]
-material = ExtResource("2_3dihn")
+material = ExtResource("2_5xbqw")
 text = "PEW"
 font_size = 50
 
@@ -14,25 +14,22 @@ lifetime_randomness = 0.75
 particle_flag_rotate_y = true
 emission_shape = 1
 emission_sphere_radius = 1.0
-angle_min = -180.0
-angle_max = 180.0
-direction = Vector3(0, 0, 0)
-spread = 74.302
-initial_velocity_min = -10.0
+direction = Vector3(0, 0, -1)
+spread = 32.442
 initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
-scale_min = 0.1
-scale_max = 0.5
+scale_min = 0.08
+scale_max = 0.2
 
 [sub_resource type="BoxMesh" id="BoxMesh_l7gnn"]
-material = ExtResource("3_1vbgt")
+material = ExtResource("3_623lg")
 
-[node name="enemy_bullet" type="Node3D"]
-script = ExtResource("1_teahm")
-bullet_air_time = 5.0
+[node name="bullet" type="Node3D"]
+script = ExtResource("1_1qv0p")
+bullet_air_time = 20.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-2.48819e-08, 0, -0.569232, 0, 0.569232, 0, 0.569232, 0, -2.48819e-08, 0, 0, 0)
 mesh = SubResource("TextMesh_teahm")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
@@ -41,10 +38,11 @@ target_position = Vector3(0, 0, -0.5)
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 emitting = false
 amount = 100
-lifetime = 0.5
+lifetime = 0.58
 one_shot = true
 explosiveness = 1.0
-randomness = 0.65
+randomness = 0.35
+collision_base_size = 0.0
 process_material = SubResource("ParticleProcessMaterial_65yeg")
 draw_pass_1 = SubResource("BoxMesh_l7gnn")
 

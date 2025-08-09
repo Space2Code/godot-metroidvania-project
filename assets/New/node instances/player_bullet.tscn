@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch883mjxk2fxs"]
+
+[ext_resource type="Material" uid="uid://date4judmoceb" path="res://assets/New/materials/dev/red-dev.tres" id="1_2oy7n"]
+[ext_resource type="Script" uid="uid://17fxu6s861fm" path="res://assets/New/node instances/player_bullet.gd" id="1_7wo54"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_autue"]
+material = ExtResource("1_2oy7n")
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.5
+
+[node name="player_bullet" type="Node3D"]
+script = ExtResource("1_7wo54")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 0.5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_autue")

@@ -7,11 +7,15 @@ const SPEED: float = 20.0
 @onready var particles: GPUParticles3D = $GPUParticles3D
 
 @export var bullet_air_time: float = 10.0
+@export var target_group: String
 
 var amount_of_damage: float
 var bullet_timer: Timer = Timer.new()
+var is_bullet_destroyed = false
 
 func _ready() -> void:
+	is_bullet_destroyed = false
+	
 	add_child(bullet_timer)
 	bullet_timer.one_shot = true
 	bullet_timer.autostart = false
@@ -21,12 +25,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	position += transform.basis * Vector3(0,0,SPEED) * delta
 	
-	if raycast.is_colliding() and raycast.get_collider().is_in_group("Player"):
+	if raycast.is_colliding() and raycast.get_collider().is_in_group(target_group) and !is_bullet_destroyed:
 		amount_of_damage = randf_range(8,13)
 		raycast.get_collider().take_damage(amount_of_damage)
 	elif raycast.is_colliding() and raycast.get_collider().is_in_group("Map"):
-		mesh.visible = true
+		mesh.visible = false
 		particles.emitting = true
+		is_bullet_destroyed = true
+		await get_tree().create_timer(1).timeout
 		queue_free()
 
 func _timer_timeout():

@@ -6,10 +6,12 @@ extends CharacterBody3D
 @export var friction = 0.2
 @export var mouse_sensitivity = 0.1
 @export var sprint_speed = 2.0
+@export var bullet: PackedScene
 
 @onready var camera = $head/Camera3D
 @onready var head = $head
 @onready var raycast: RayCast3D = $head/RayCast3D
+@onready var shoot_point: Node3D = $head/shoot_point
 
 var yaw_input = 0.0
 var pitch_input = 0.0
@@ -32,7 +34,7 @@ func camera_controller ():
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pewpew"):
-		hit_scan_shooting()
+		shooting()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -72,11 +74,13 @@ func _unhandled_input(event: InputEvent) -> void:
 			yaw_input = - event.screen_relative.x * mouse_sensitivity 
 			pitch_input = - event.screen_relative.y * mouse_sensitivity
 
-func hit_scan_shooting():
-	var collider = raycast.get_collider()
-	if raycast.is_colliding() and collider.is_in_group("Enemy"):
-		collider.get_parent().take_damage()
-	else: print("null")
+func shooting():
+	pass
+	
+	#var collider = raycast.get_collider()
+	#if raycast.is_colliding() and collider.is_in_group("Enemy"):
+		#collider.get_parent().take_damage()
+	#else: print("null")
 
 func take_damage(taken_damage) -> void:
 	Global.player_health -= taken_damage

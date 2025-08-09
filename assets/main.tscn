@@ -37,4 +37,5 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="ItemPickUpScreen" parent="SubViewportContainer" instance=ExtResource("4_836ik")]
+visible = false
 layout_mode = 2

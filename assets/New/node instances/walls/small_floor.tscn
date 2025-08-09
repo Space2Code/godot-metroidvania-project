@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://q1uwqufu6ysf"]
+
+[ext_resource type="Material" uid="uid://do7ge7x35048" path="res://assets/New/materials/dev/green-dev.tres" id="1_fyrjx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0tdnr"]
+size = Vector3(10, 0.5, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_63xrs"]
+material = ExtResource("1_fyrjx")
+size = Vector3(10, 0.5, 10)
+
+[node name="small_floor" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_0tdnr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_63xrs")

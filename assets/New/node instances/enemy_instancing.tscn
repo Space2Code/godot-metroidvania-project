@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c23tiakji57or"]
+[gd_scene load_steps=5 format=3 uid="uid://c23tiakji57or"]
 
 [ext_resource type="Script" uid="uid://vsyy4dx7apqk" path="res://assets/New/scripts/enemy_instancing.gd" id="1_bweop"]
 [ext_resource type="PackedScene" uid="uid://b7133dtehcj1d" path="res://assets/New/node instances/basic_enemy.tscn" id="2_ptq65"]
@@ -6,6 +6,10 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rfoij"]
 height = 0.001
 radius = 4.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ptq65"]
+height = 5.0
+radius = 10.0
 
 [node name="Enemy Instancing" type="Node3D"]
 script = ExtResource("1_bweop")
@@ -15,3 +19,9 @@ basic_enemy_scene = ExtResource("2_ptq65")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("CylinderShape3D_rfoij")
+
+[node name="player_detection_area" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player_detection_area"]
+shape = SubResource("CylinderShape3D_ptq65")

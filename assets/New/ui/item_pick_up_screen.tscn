@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://ynot8rauvv2v" path="res://assets/New/ui/themes/player_theme.tres" id="1_aa1jp"]
 [ext_resource type="Script" uid="uid://crhklriqu3hf8" path="res://assets/New/ui/scripts/item_pick_up_screen.gd" id="1_bfydq"]
 [ext_resource type="Texture2D" uid="uid://dynrng2s63euu" path="res://assets/New/textures/dev/dark-dev_text.png" id="2_kxtax"]
-[ext_resource type="Texture2D" uid="uid://5pd68g8xlrai" path="res://assets/New/textures/dev/red-dev_text.png" id="2_l41hk"]
+[ext_resource type="Texture2D" uid="uid://ghahs0uf4dus" path="res://assets/New/textures/imgs/place-holder.png" id="2_l41hk"]
 [ext_resource type="Script" uid="uid://b04uqsv2wjaho" path="res://assets/New/ui/scripts/animation_component.gd" id="3_tvswl"]
 
 [node name="ItemPickUpScreen" type="Control"]
@@ -48,9 +48,11 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/MarginContainer2/CenterContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 texture = ExtResource("2_kxtax")
-stretch_mode = 2
+expand_mode = 1
 
 [node name="AnimationComponent" type="Node" parent="PanelContainer/VBoxContainer/MarginContainer2/CenterContainer/TextureRect"]
 script = ExtResource("3_tvswl")
